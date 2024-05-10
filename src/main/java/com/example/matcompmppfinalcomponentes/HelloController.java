@@ -7,20 +7,30 @@ import ClasesProyecto.Individuos.básico;
 import ClasesProyecto.Mapa.Mapa;
 import Listas.ListasSE.Map;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
-import java.util.Stack;
+import java.io.IOException;
 
 import static ClasesProyecto.Global.mapa;
 import static es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication.labelMap;
 
 public class HelloController {
-    public static int m = 15;
-    public static int n = 20;
+    public static int m = 15; //Largo
+    public static int n = 20; //Ancho
     @FXML
     public static Button botonTurnos;
+    @FXML
+    public static Slider ancho;
+    @FXML
+    public static Slider largo;
+    @FXML
+    public static Slider pDeRecursos;
     @FXML
     public static Button generarMapa;
     @FXML
@@ -29,20 +39,25 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
-    @FXML protected GridPane tableroDeJuego;
+    @FXML
+    protected GridPane tableroDeJuego;
     private Global juego;
     boolean ya;
+    private ParameterDataModel parametrosData = new ParameterDataModel(7, 10, "Juanito");
+    private ParameterDataModelProperties modeloParaGUICompartido = new ParameterDataModelProperties(parametrosData);
+
     //juego
 
     @FXML
-    protected void onPlay(){
+    protected void onPlay() {
         generarMapa.setVisible(true);
         generarMapa.setDisable(false);
 
     }
+
     @FXML
     protected void onHelloButtonClick() {
-        if(ya) return;
+        if (ya) return;
         ya = true;
         welcomeText.setText("Cargando el tablero de juego");
         Mapa<Integer> mapa = new Mapa<>(n, m);
@@ -66,7 +81,7 @@ public class HelloController {
 
 
         //Global
-                juego = new Global(mapa, individuos);
+        juego = new Global(mapa, individuos);
 
 
         juego.addIndividuo(i1);
@@ -88,7 +103,7 @@ public class HelloController {
                 placeholder.setMinSize(90, 50); // Tamaño mínimo para visualización
                 placeholder.setStyle("-fx-border-color: black; -fx-text-alignment: center;");
                 tableroDeJuego.add(placeholder, i, j);
-                labelMap[i][j]= placeholder;
+                labelMap[i][j] = placeholder;
 
             }
         }
@@ -96,6 +111,7 @@ public class HelloController {
         botonTurnos.setVisible(true);
 
     }
+
     @FXML
     protected void onPassTurnButton() {
         juego.pasarTurno();
@@ -109,6 +125,7 @@ public class HelloController {
             }
         }
     }
+
     @FXML
     protected void onSettings() {
 
@@ -116,27 +133,61 @@ public class HelloController {
     }
 
 
+    @FXML
+    protected void onMiBotonNuevaVentanaParametrosClick() throws IOException {
+
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(AplicationVentanaRecursoEIndividuos.class.getResource("ventanaRecursosEIndividuos.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+
+
+
+        /*Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parameters-view.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 420, 340);
+            stage.setTitle("Establezca parámetros: ");
+            stage.setScene(scene);
+            ParameterController p = fxmlLoader.getController();
+            p.loadUserData(this.modeloParaGUICompartido); //Carga los datos del modelo en el gui, todas las ventanas comparten el mismo en este caso
+            p.setStage(stage);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();*/
+        }
 
 
 
 
-    }
 
 
 
+}
 
-    /** Nota 1: IMPORTANTE:
-     * la inicialización en este caso la hemos hecho cuando el usuario ha pulsado el botón.
-     * También podríamos hacerla en el método "initialize" si indicamos que el controlador es "Initializable",
-     * como en los ejemplos anteriores.
-     */
 
-    /** Nota 2:
-     * Este ejemplo está hecho para reducir al máximo la complejidad, pero hay que recordar que podríamos querer
-     * enlazar lo que aparece en cada celda del grid con objetos y properties...
-     */
 
-    /** Nota 3:
-     * Si quiero varios elementos en la misma celda, debo introducirlos en un layout y ese layour meterlo en la celda.
-     */
+/**
+ * Nota 1: IMPORTANTE:
+ * la inicialización en este caso la hemos hecho cuando el usuario ha pulsado el botón.
+ * También podríamos hacerla en el método "initialize" si indicamos que el controlador es "Initializable",
+ * como en los ejemplos anteriores.
+ * Nota 2:
+ * Este ejemplo está hecho para reducir al máximo la complejidad, pero hay que recordar que podríamos querer
+ * enlazar lo que aparece en cada celda del grid con objetos y properties...
+ * Nota 3:
+ * Si quiero varios elementos en la misma celda, debo introducirlos en un layout y ese layour meterlo en la celda.
+ */
+
+/** Nota 2:
+ * Este ejemplo está hecho para reducir al máximo la complejidad, pero hay que recordar que podríamos querer
+ * enlazar lo que aparece en cada celda del grid con objetos y properties...
+ */
+
+/** Nota 3:
+ * Si quiero varios elementos en la misma celda, debo introducirlos en un layout y ese layour meterlo en la celda.
+ */
 

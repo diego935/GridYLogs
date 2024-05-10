@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label alignment="CENTER" prefHeight="27.0" prefWidth="215.0" text="Parámetros">
+            <font>
+                <Font name="System Italic" size="18.0" />
+            </font>
+        </Label>
+        <TabPane prefHeight="329.0" prefWidth="761.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Individuos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="55.0" prefWidth="600.0">
+                            <children>
+                                <VBox layoutX="14.0" layoutY="14.0" prefHeight="182.0" prefWidth="450.0">
+                                    <children>
+                                        <Label layoutX="10.0" layoutY="10.0" text="Nº de turnos total" />
+                                        <Slider fx:id="sliderNumTurnos" layoutX="10.0" layoutY="20.0" />
+                                        <Label text="Nº de individuos iniciales" />
+                                        <Slider fx:id="sliderNumIndividuosIniciales" />
+                                        <Label text="Probabilidad de reproducción" />
+                                        <Slider fx:id="sliderProbReproduccionIndividuo" />
+                                        <Label text="Probabilidad de clonación" />
+                                        <Slider fx:id="sliderProbClonacionIndividuo" prefHeight="14.0" prefWidth="354.0" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Recursos">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="560.0">
+                            <children>
+                                <VBox prefHeight="200.0" prefWidth="100.0" />
+                                <TabPane layoutX="14.0" layoutY="14.0" prefHeight="270.0" prefWidth="492.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab id="porcentajeIndividual" fx:id="porcentajeRecursosTab" text="Porcentaje individual">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="219.0" prefWidth="492.0">
+                                                    <children>
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" text="Agua              " />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="50.0" text="Comida         " />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="90.0" text="Montaña" />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="130.0" text="Tesoro" />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="170.0" text="Biblioteca       " />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="210.0" text="Pozo                       " />
+                                                        <Slider fx:id="sliderProbMontana" layoutX="80.0" layoutY="90.0" />
+                                                        <Slider fx:id="sliderProbPozo" layoutX="80.0" layoutY="210.0" />
+                                                        <Slider fx:id="sliderProbTesoro" layoutX="80.0" layoutY="130.0" prefHeight="14.0" prefWidth="138.0" />
+                                                        <Slider fx:id="sliderProbBiblioteca" layoutX="80.0" layoutY="170.0" />
+                                                        <Slider fx:id="sliderProbComida" blockIncrement="1.0" layoutX="80.0" layoutY="50.0" prefHeight="26.0" prefWidth="140.0" />
+                                                        <Slider fx:id="sliderProbAgua" layoutX="80.0" layoutY="10.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab id="turnosDeVida" fx:id="turnosDeVidaTab" text="+Turnos de vida">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="492.0">
+                                                    <children>
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" text="Agua              " />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="50.0" text="Comida         " />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="90.0" text="Montaña" />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="130.0" text="Tesoro" />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="170.0" text="Biblioteca       " />
+                                                        <Label contentDisplay="RIGHT" layoutX="10.0" layoutY="210.0" text="Pozo" />
+                                                        <Label contentDisplay="RIGHT" layoutX="100.0" layoutY="10.0" text="+2" />
+                                                        <Label contentDisplay="RIGHT" layoutX="100.0" layoutY="50.0" text="+10" />
+                                                        <Label contentDisplay="RIGHT" layoutX="100.0" layoutY="90.0" text="-2" />
+                                                        <Label contentDisplay="RIGHT" layoutX="100.0" layoutY="210.0" text="Muerte directa" />
+                                                        <Slider fx:id="sliderProbReproduccionTesoro" layoutX="100.0" layoutY="130.0" />
+                                                        <Slider fx:id="sliderProbClonacionBiblioteca" layoutX="100.0" layoutY="170.0" />
+                                                        <Label layoutX="260.0" layoutY="128.0" text="(Aumenta probabilidad de reproducción)" />
+                                                        <Label layoutX="260.0" layoutY="170.0" text="(Aumenta probabilidad de clonación)" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab fx:id="porcentajeAparicionRecursosTab" text="Porcentaje general de aparición">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: LIGHT GREEN;">
+                                                    <children>
+                                                        <Label contentDisplay="RIGHT" layoutX="88.0" layoutY="74.0" text="Probabilidad de que aparezcan recursos en una casilla" />
+                                                        <Slider fx:id="sliderProbAparicionCasillaRecursos" layoutX="161.0" layoutY="106.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <HBox alignment="CENTER_RIGHT" prefHeight="9.0" prefWidth="760.0">
+            <children>
+                <Button mnemonicParsing="false" text="Guardar" />
+                <Button alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" text="Reiniciar" />
+                <Button mnemonicParsing="false" text="Cerrar" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+    </padding>
+</VBox>
