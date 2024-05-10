@@ -145,7 +145,6 @@ public class HelloController {
         stage.show();
 
 
-
         /*Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("parameters-view.fxml"));
         try {
@@ -157,17 +156,12 @@ public class HelloController {
             p.setStage(stage);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();*/
-        }
+            e.printStackTrace();
+        }*/
 
 
-
-
-
-
-
+    }
 }
-
 
 
 /**
@@ -175,6 +169,11 @@ public class HelloController {
  * la inicialización en este caso la hemos hecho cuando el usuario ha pulsado el botón.
  * También podríamos hacerla en el método "initialize" si indicamos que el controlador es "Initializable",
  * como en los ejemplos anteriores.
+ * Nota 2:
+ * Este ejemplo está hecho para reducir al máximo la complejidad, pero hay que recordar que podríamos querer
+ * enlazar lo que aparece en cada celda del grid con objetos y properties...
+ * Nota 3:
+ * Si quiero varios elementos en la misma celda, debo introducirlos en un layout y ese layour meterlo en la celda.
  * Nota 2:
  * Este ejemplo está hecho para reducir al máximo la complejidad, pero hay que recordar que podríamos querer
  * enlazar lo que aparece en cada celda del grid con objetos y properties...

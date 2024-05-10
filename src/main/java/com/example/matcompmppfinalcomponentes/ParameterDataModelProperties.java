@@ -11,7 +11,6 @@ import javafx.beans.property.*;
 public class ParameterDataModelProperties {
     //Modelo de datos original
     protected ParameterDataModel original;
-
     private IntegerProperty velocidad = new SimpleIntegerProperty();
     private IntegerProperty vida = new SimpleIntegerProperty();
     private StringProperty nombre = new SimpleStringProperty();

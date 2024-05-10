@@ -77,6 +77,7 @@ public class ParameterController implements Initializable {
         sliderVelocidad.valueProperty().bindBidirectional(model.velocidadProperty());
         sliderVida.valueProperty().bindBidirectional(model.vidaProperty());
         textfieldNombre.textProperty().bindBidirectional(model.nombreProperty());
+
     }
 
     /**

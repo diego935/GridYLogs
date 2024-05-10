@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment="No va">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Normal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/básico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/básico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" afterDir="false" />
+    <list default="true" id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment="Ventana controles sin lógica">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/DataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/RecursosEIndividuosProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ParameterDataModelProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ParameterDataModelProperties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +37,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.HelloApplication.executor": "Debug",
+    "Application.AplicationVentanaRecursoEIndividuos.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
     "Application.MainGridApplication.executor": "Profiler#1",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
@@ -60,7 +49,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Diego/IdeaProjects/GridYLogs/src/main/java",
+    "last_opened_file_path": "C:/Users/Diego/IdeaProjects/GridYLogs/src/main/resources/com/example/matcompmppfinalcomponentes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +64,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\resources\com\example\matcompmppfinalcomponentes" />
+      <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\java\com\example\matcompmppfinalcomponentes" />
       <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\java" />
       <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\java\Proyecto" />
     </key>
@@ -132,7 +123,9 @@
       <option name="presentableId" value="Default" />
       <updated>1713892482989</updated>
       <workItem from="1713892484020" duration="5460000" />
-      <workItem from="1715323851377" duration="14967000" />
+      <workItem from="1715323851377" duration="15812000" />
+      <workItem from="1715353704318" duration="1356000" />
+      <workItem from="1715377695191" duration="2568000" />
     </task>
     <task id="LOCAL-00001" summary="No va">
       <option name="closed" value="true" />
@@ -142,15 +135,44 @@
       <option name="project" value="LOCAL" />
       <updated>1715296016561</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Medio Funciona">
+      <option name="closed" value="true" />
+      <created>1715340985918</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715340985918</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Ventana controles sin lógica">
+      <option name="closed" value="true" />
+      <created>1715378750783</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715378750783</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="No va" />
-    <option name="LAST_COMMIT_MESSAGE" value="No va" />
+    <MESSAGE value="Medio Funciona" />
+    <MESSAGE value="Ventana controles sin lógica" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ventana controles sin lógica" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -177,7 +199,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java</url>
-          <line>73</line>
+          <line>97</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
