@@ -11,6 +11,7 @@ import Listas.ListasSE.Map;
 import static ClasesProyecto.Global.mapa;
 
 public class Avanzado extends Individuo{
+    Integer[] objetivo;
 
     public Avanzado(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre, Individuo madre){
         super(id,  vida, generación,  pClonacion, pReproduccion, padre, madre);
@@ -36,22 +37,24 @@ public class Avanzado extends Individuo{
     }
 
     @Override
-    public void mover() throws Arriba, Abajo, Izquierda, Derecha {
+    public int mover() {
 
+        if (objetivo==null) objetivo = recursoPositivoCercano();
+        if(pos[0]==objetivo[0] && pos[1]==objetivo[1]) objetivo = recursoPositivoCercano();
+            //Crea el mapa de mejores rutas a cualquier punto del mapa
+            Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
+            System.out.println(dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]));
 
-        //Crea el mapa de mejores rutas a cualquier punto del mapa
-        Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
-        System.out.println(dijkstra.getFromId(mapa.casillas[2][2]));
+            Integer[] proximaPos = dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]).getCamino().getElemento(1).getPos();
+            proximaPos[0] = proximaPos[0] - this.pos[0];
+            if (proximaPos[0] == 1) return 0;
+            if (proximaPos[0] == -1) return 2;
 
+            proximaPos[1] = proximaPos[1] - this.pos[1];
+            if (proximaPos[1] == 1) return 1;
+            if (proximaPos[1] == -1) return 3;
 
-        Integer[] proximaPos = dijkstra.getFromId(mapa.casillas[2][2]).getCamino().getElemento(1).getPos();
-        proximaPos[0] = proximaPos[0]- this.pos[0];
-        if (proximaPos[0] ==1) throw new Arriba();
-        if (proximaPos[0] ==-1) throw new Abajo();
-
-        proximaPos[1] = proximaPos[1]- this.pos[1];
-        if (proximaPos[1] ==1) throw new Derecha();
-        if (proximaPos[1] ==-1) throw new Izquierda();
+            return 12;
     }
 
 

@@ -1,20 +1,16 @@
 package es.uah.matcomp.mp.pfinal.componentesylogs;
 
-import ClasesProyecto.Global;
-import ClasesProyecto.Individuos.Avanzado;
-import ClasesProyecto.Individuos.Individuo;
-import ClasesProyecto.Individuos.básico;
-import ClasesProyecto.Mapa.Casilla;
-import ClasesProyecto.Mapa.Mapa;
-import Excepciones.Muerte;
-import Listas.ListasSE.Map;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import static com.example.matcompmppfinalcomponentes.HelloController.m;
+import static com.example.matcompmppfinalcomponentes.HelloController.n;
 import static javafx.application.Application.launch;
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
@@ -69,57 +65,29 @@ public class MainGridApplication extends Application {
      * se pueden enviar por correo electrónico (SMTP) y a bases de datos en otras configuraciones.
      */
 
-    //private static final Logger log = LogManager.getLogger(MainGridApplication.class);
+    public static final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(MainGridApplication.class);
 
 
     /**
      * En este ejemplo, vamos a crear programáticamente la ventan en la que trabajaremos.
      */
-    static Label[][] labelMap =new Label[15][15];
+    public static Label[][] labelMap =new Label[n][m];
     GridPane mainGrid = new GridPane();
 
-
+    @FXML
     @Override
     public void start(Stage primaryStage)  {
 
-        //log.info("Inicio del método de arranque de la aplicación para mostrar un grid de forma programática");
+
+        log.info("Inicio del método de arranque de la aplicación para mostrar un grid de forma programática");
 
 
-
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
-                // Aquí podrías instanciar tu clase de celda, más compleja
-
-                // Ejemplo simplificado con un Label
-                Label placeholder = new Label("Celda " + i + "," + j);
-                labelMap[i][j]= placeholder;
-                placeholder.setMinSize(60, 60); // Tamaño mínimo para visualización
-                placeholder.setStyle("-fx-border-color: black; -fx-text-alignment: center;");
-                mainGrid.add(placeholder, i, j);
-
-                // OJO!: Tal como está programado, pierdo la referencia a los labels...
-                //       Si los quisiese usar después, debería guardarlos de alguna manera en algún sitio
-                // Pista: los quieres guardar para poder cambiar lo que aparece en pantalla :)
-            }
-        }
-
-
-        //Ejemplo para poner 3 labels en la misma celda
-
-        /*Label antonio = new Label("Antonio");
-        Label moratilla = new Label("Moratilla");
-        Label ocaña = new Label("Ocaña");
-
-        VBox layout = new VBox(antonio,moratilla,ocaña);
-        layout.setStyle("-fx-border-color: black; -fx-text-alignment: center;");
-        mainGrid.add(layout,15,15);  // OJO: las coordenadas...: el grid responde automáticamente.
-*/
         Scene scene = new Scene(mainGrid, 600, 600);
         primaryStage.setTitle("Grid de 10x10 con Componentes Personalizados");
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
+/*
         Mapa<Integer> mapa = new Mapa<>(15, 15);
         Map<Individuo, Integer[]> individuos = new Map<>();
 
@@ -127,7 +95,7 @@ public class MainGridApplication extends Application {
         Individuo i2 = new básico(2, 10, 0, 0, 0);
         Individuo i3 = new básico(3, 10, 0, 0, 0, i1, i2);
         Individuo i4 = new básico(4, 10, 0, 0, 0, i1, i2);
-        Individuo i5 = new básico(5, 10, 0, 0, 0, i3, i2);
+        Individuo i5 = new Avanzado(5, 10, 0, 0, 0, i3, i2);
         Individuo i6 = new Avanzado(6, 10, 0, 0, 0, i4, i5);
 
         i1.setPos(new Integer[]{1, 4});
@@ -148,7 +116,7 @@ public class MainGridApplication extends Application {
 
         boolean pause = false;
         String texto;
-        /*while (!pause) {
+        while (!pause) {
             for (int i = 0; i < 15; i++) {
                 for (int j = 0; j < 15; j++) {
                     //Label label =labelMap.getFromId(new Integer[]{i, j});
@@ -168,7 +136,7 @@ public class MainGridApplication extends Application {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }*/
+        }
 
 /*
         //scene = new Scene(mainGrid, 600, 600);
@@ -186,12 +154,13 @@ public class MainGridApplication extends Application {
     // Según la configuración del fichero de log4j2.xml, se guardarán los mensajes
     // del nivel configurado y superiores, pero no inferiores.
 
-    //     log.trace("Enviando una traza de ejecución");
-    //   log.debug("Enviado un debug");
-    // log.info("Enviando un info");
-    //      log.warn("Enviando un aviso");
-    //    log.error("Enviando un error");
-    //  log.fatal("Enviando una explosión fatal");
+
+//    log.trace("Enviando una traza de ejecución");
+//    log.debug("Enviado un debug");
+//    log.info("Enviando un info");
+//    log.warn("Enviando un aviso");
+//    log.error("Enviando un error");
+//    log.fatal("Enviando una explosión fatal");
 
     // Los logs sólo operan si la clase utilizada coincide con el patrón que se pone en el log4j2.xml.
     // En este caso el patrón es "es.uah" que coincide con nuestro paquete, por eso funciona.
@@ -201,7 +170,7 @@ public class MainGridApplication extends Application {
 
 
     public static void main(String[] args) {
-        Mapa<Integer> mapa = new Mapa<>(15, 20);
+/*        Mapa<Integer> mapa = new Mapa<>(15, 20);
         Map<Individuo, Integer[]> individuos = new Map<>();
 
 
@@ -238,8 +207,8 @@ public class MainGridApplication extends Application {
         }
     }*/
         launch(args);
-
-        while (true) {
+        /*boolean pause = true;
+        while (!pause) {
             for (int i = 0; i < 15; i++) {
                 for (int j = 0; j < 15; j++) {
                     //Label label =labelMap.getFromId(new Integer[]{i, j});
@@ -258,7 +227,7 @@ public class MainGridApplication extends Application {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
 
 
     }

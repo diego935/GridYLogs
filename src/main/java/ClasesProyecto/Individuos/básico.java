@@ -33,28 +33,29 @@ public class básico extends Individuo{
 
 
     @Override
-    public void mover() throws Arriba, Abajo, Izquierda,Derecha{
+    public int mover() {
         int random = (int) ((20*Math.random())%4);
-        if (random==0) {
-            if (this.pos[0] !=0)throw new Abajo();
-            throw new Arriba();
+        System.out.println(random);
 
+        if (random==0) {
+            if (this.pos[0] !=0) return 2;
+            return 0;
         }
         if (random==1) {
-            if (this.pos[0] != Global.getMax()[0])  throw new Arriba();
-            throw new Abajo();
+            if (this.pos[0] != Global.getMax()[0])  return 0;
+            return 2;
         }
 
         if (random==2) {
-            if (this.pos[1] != 0) throw new Izquierda();
+            if (this.pos[1] != 0) return 3;
 
-            throw new Derecha();
+            return  1;
         }
         if (random==3){
-            if (this.pos[1] != Global.getMax()[1])  throw new Derecha();
-            throw new Izquierda();
+            if (this.pos[1] != Global.getMax()[1])  return 1;
+            return 3;
         }
-
+        return -1;
     }
 
 

@@ -9,8 +9,9 @@ import Grafos.Arista;
 import Listas.ListasSE.ListaSE;
 import Listas.ListasSE.Map;
 
-import static ClasesProyecto.Global.id;
-import static ClasesProyecto.Global.turno;
+import java.util.Random;
+
+import static ClasesProyecto.Global.*;
 
 public class Casilla<Tipo> {
 
@@ -108,13 +109,27 @@ public class Casilla<Tipo> {
 
         if (Math.random() > Global.pRecursos) return;
 
-        int r = (int) (20 * Math.random() % 6);
 
-        Recurso recurso = new Recurso(r + 1, this);
+        Random r = new Random();
+        int tipo =1;
+        int prop = r.nextInt(pAgua+pComida+pBiblio+pMontaña+pPozo+pTesoro);
+        for (Integer p : new Integer[]{pAgua,pComida,pMontaña,pTesoro, pBiblio, pPozo}) {
+        if (prop<= p) break;
+        prop-=p;
+        tipo++;
+        }
+
+        System.out.println(tipo);
+
+
+
+
+
+        Recurso recurso = new Recurso(tipo, this);
         this.recursos.add(recurso);
         Global.recursos.add(recurso);
-        this.peso+= Global.CambioPeso(r);
-        this.cambioPeso(Global.CambioPeso(r));
+        this.peso+= Global.CambioPeso(tipo);
+        this.cambioPeso(Global.CambioPeso(tipo));
     }
 
 
@@ -166,12 +181,11 @@ public class Casilla<Tipo> {
         String info ="";
         for (Object c2 : colonos.values()) {
             Individuo c1 = (Individuo) c2;
-            info+=( "Individuo tipo"+ c1.Type());
+            info+=( "Individuo tipo"+ c1.Type()+"\n");
         }
-        info+="\n";
         for (Object r2 : recursos.values()) {
             Recurso r1 = (Recurso) r2;
-            info+=( "Recurso tipo"+ r1.getTipo());
+            info+=( "Recurso tipo"+ r1.getTipo()+"\n");
         }
         return info;
     }

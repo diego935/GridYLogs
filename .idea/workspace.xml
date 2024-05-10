@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment="No va">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Normal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/básico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/básico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Casilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/hello-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2fVi7g0DWiJECjK8c6MLGq4RyKN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Debug",
+    "Application.MainGridApplication.executor": "Profiler#1",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Diego/IdeaProjects/GridYLogs/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.44367817",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\java" />
+      <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\java\Proyecto" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Proyecto.ClasesProyecto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.matcompmppfinalcomponentes.HelloApplication" />
+      <module name="GridYLogs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="es.uah.matcomp.mp.pfinal.componentesylogs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainGridApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication" />
+      <module name="GridYLogs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="es.uah.matcomp.mp.pfinal.componentesylogs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.MainGridApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment="" />
+      <created>1713892482989</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713892482989</updated>
+      <workItem from="1713892484020" duration="5460000" />
+      <workItem from="1715323851377" duration="14967000" />
+    </task>
+    <task id="LOCAL-00001" summary="No va">
+      <option name="closed" value="true" />
+      <created>1715296016561</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715296016561</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="No va" />
+    <option name="LAST_COMMIT_MESSAGE" value="No va" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
+          <line>210</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GridYLogs$MainGridApplication.ic" NAME="MainGridApplication Coverage Results" MODIFIED="1715339534423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>es.uah.matcomp.mp.pfinal.componentesylogs.*</FILTER>
+    </SUITE>
+  </component>
+</project>

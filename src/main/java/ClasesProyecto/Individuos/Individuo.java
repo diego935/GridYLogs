@@ -5,8 +5,8 @@ import Arboles.ArbolGenialogico;
 import ClasesProyecto.Recurso;
 import Excepciones.*;
 
-import static ClasesProyecto.Global.individuos;
-import static ClasesProyecto.Global.recursos;
+import static ClasesProyecto.Global.*;
+import static com.example.matcompmppfinalcomponentes.HelloController.m;
 
 public abstract class Individuo {
 
@@ -119,7 +119,7 @@ public abstract class Individuo {
         return pos;
     }
 
-    public abstract void mover() throws Arriba, Abajo, Izquierda, Derecha;
+    public abstract int mover();
 
     public abstract int Type();
 
@@ -145,7 +145,7 @@ public abstract class Individuo {
 
 
     public Integer[] recursoPositivoCercano() {
-        //ya se debe haber confirmado que haya recursos.
+        if(recursos.isVacia()) return new Integer[]{(mapa.getMax()[0]+1)/2,(mapa.getMax()[1]+1)/2};
         Integer[] recursoCercanoPos = new Integer[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
         int min = Integer.MAX_VALUE;
         Integer[] recursoPos;
@@ -155,7 +155,7 @@ public abstract class Individuo {
             Recurso r = (Recurso) r2;
             recursoPos = r.getPos();
             distancia = distancia(recursoPos, this.pos);
-            if (distancia < min) {
+            if (distancia < min && distancia!= 0) {
                 min = distancia;
                 recursoCercanoPos = recursoPos;
             }
@@ -180,6 +180,13 @@ public abstract class Individuo {
             }
         }
         return cercanoPos;
+    }
+
+    public Integer[] getRecurspRandom(){
+        if (recursos.isVacia()) return new Integer[]{(getMax()[0]+1)/2,(getMax()[1]+1)/2};
+        int random = (int) (30 * Math.random()) % recursos.numElementos();
+        return recursos.getElemento(random).getPos();
+
     }
 
 

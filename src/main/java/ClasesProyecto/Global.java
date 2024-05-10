@@ -14,7 +14,16 @@ public class Global {
     public static Map<Individuo, Integer[]> individuos = new Map<>();
     public static Mapa<Casilla> mapa;
     public static ListaSE<Recurso> recursos = new ListaSE<>();
-    public static double pRecursos = 0.33;
+    public static double pRecursos=0.1;
+    public static int pAgua=1;
+    public static int pComida=1;
+    public static int pMontaña=1;
+    public static int pTesoro=1;
+    public static int pBiblio=1;
+    public static int pPozo=1;
+    public static float porcentajeMejora;
+
+
 
     public Global(Mapa mapa, Map<Individuo, Integer[]> individuos) {
         this.mapa = mapa;
@@ -44,111 +53,118 @@ public class Global {
     public void moverIndividuos() {
         for (Object i2 : individuos.keys()) {
             Individuo i = (Individuo) i2;
-            try {
-                i.mover();
-            } catch (Arriba arriba) {
-                moverIndividuo(i, new Integer[]{1, 0});
-            } catch (Abajo abajo) {
-                moverIndividuo(i, new Integer[]{-1, 0});
-            } catch (Izquierda izquierda) {
-                moverIndividuo(i, new Integer[]{0, -1});
-            } catch (Derecha derecha) {
-                moverIndividuo(i, new Integer[]{0, 1});
+
+            int movimiento = i.mover();
+
+            if (movimiento == 0) moverIndividuo(i, new Integer[]{1, 0});
+            else if (movimiento==2) {moverIndividuo(i, new Integer[]{-1, 0});}
+            else if (movimiento==3) {moverIndividuo(i, new Integer[]{0, -1});}
+            else if(movimiento == 4) moverIndividuo(i, new Integer[]{0, 1});
+        }
+    }
+
+public void generarRecursos() {
+    for (Casilla[] c2 : mapa.casillas) {
+        for (Casilla c : c2) {
+            c.generarRecurso();
+        }
+    }
+}
+
+
+public void generarRecurso(int n, int m, int tipo) {
+    mapa.casillas[n][m].generarRecurso(tipo);
+}
+
+public void ActualizarRecursos() {
+    for (Object r2 : recursos.values()) {
+        Recurso r = (Recurso) r2;
+        r.actualizar();
+    }
+}
+
+public void ActualizarVida() {
+    for (Object i2 : individuos.keys()) {
+        Individuo i = (Individuo) i2;
+        try {
+            i.actualizarVida();
+        } catch (Muerte muerte) {
+            //individuos.eliminar(i);
+            //mapa.casillas[i.pos[0]][i.pos[1]].delColono(i);
+        }
+    }
+}
+
+public void reproducción() {
+    for (Casilla[] casillas : mapa.casillas) {
+        for (Casilla casilla : casillas) {
+            if (casilla.colonos.numElementos() == 2 /*Se podría poner tambien como mayor que 2*/) {
+                try {
+                    casilla.gestionReproducción();
+                } catch (Muerte muerte) {
+                }
+
             }
-
-
         }
     }
+}
 
-    public void generarRecursos() {
-        for (Casilla[] c2 : mapa.casillas) {
-            for (Casilla c : c2) {
-                c.generarRecurso();
-            }
-        }
-    }
+public void aplicarRecursos() {
+    for (Casilla[] casillas : mapa.casillas) {
+        for (Casilla casilla : casillas) {
+            if (!casilla.colonos.isVacia() && !casilla.recursos.isVacia()) {
 
-
-    public void generarRecurso(int n, int m, int tipo) {
-        mapa.casillas[n][m].generarRecurso(tipo);
-    }
-
-    public void ActualizarRecursos() {
-        for (Object r2 : recursos.values()) {
-            Recurso r = (Recurso) r2;
-            r.actualizar();
-        }
-    }
-
-    public void ActualizarVida() {
-        for (Object i2 : individuos.keys()) {
-            Individuo i = (Individuo) i2;
-            try {
-                i.actualizarVida();
-            } catch (Muerte muerte) {
-                //individuos.eliminar(i);
-                //mapa.casillas[i.pos[0]][i.pos[1]].delColono(i);
-            }
-        }
-    }
-
-    public void reproducción() {
-        for (Casilla[] casillas : mapa.casillas) {
-            for (Casilla casilla : casillas) {
-                if (casilla.colonos.numElementos() == 2 /*Se podría poner tambien como mayor que 2*/) {
-                    try {
-                        casilla.gestionReproducción();
-                    } catch (Muerte muerte) {
-                    }
+                try {
+                    casilla.aplicarRecursos();
+                } catch (Muerte muerte) {
 
                 }
+
+
             }
         }
     }
 
-    public void aplicarRecursos() {
-        for (Casilla[] casillas : mapa.casillas) {
-            for (Casilla casilla : casillas) {
-                if (!casilla.colonos.isVacia() && !casilla.recursos.isVacia()) {
+}
 
-                    try {
-                        casilla.aplicarRecursos();
-                    } catch (Muerte muerte) {
+public static int[] getMax() {
+    return Mapa.getMax();
+}
 
-                    }
+public void pasarTurno() {
+    this.ActualizarVida();
+    this.ActualizarRecursos();
+    this.generarRecursos();
+    this.moverIndividuos();
+    this.reproducción();
+    this.aplicarRecursos();
 
+    turno++;
 
-                }
-            }
+    /*if (turno % 10 == 0) {
+        try {
+            Thread.sleep(500);
+            System.out.println("aasd");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+    }*/
 
-    }
-
-    public static int[] getMax() {
-        return Mapa.getMax();
-    }
-
-    public void pasarTurno()  {
-
-        this.ActualizarVida();
-        this.ActualizarRecursos();
-        this.generarRecursos();
-        this.moverIndividuos();
-        this.reproducción();
-        this.aplicarRecursos();
-
-        turno++;
-
-
+    if (Global.individuos.numElementos() <= 1) {
+        //pause =true;
+        System.out.println("Se ha terminado");
         if (turno % 10 == 0) {
             try {
-                Thread.sleep(500);
+                Thread.sleep(5000);
                 System.out.println("aasd");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            finally {
+                System.exit(1);
+            }
         }
-        if (Global.individuos.numElementos() <= 1) System.out.println("Se ha terminado");
+    }
 }
 
 

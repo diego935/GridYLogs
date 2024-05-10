@@ -1,7 +1,8 @@
 module com.example.matcompmppfinalcomponentes {
     requires javafx.controls;
     requires javafx.fxml;
-    //requires org.apache.logging.log4j;
+    requires org.apache.logging.log4j;
+    requires java.rmi;
 
 
     opens com.example.matcompmppfinalcomponentes to javafx.fxml;
