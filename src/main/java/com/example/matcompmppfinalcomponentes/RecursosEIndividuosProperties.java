@@ -7,14 +7,14 @@ public class RecursosEIndividuosProperties {
     protected DataModel original;
     private IntegerProperty velocidad = new SimpleIntegerProperty();
     private IntegerProperty vida = new SimpleIntegerProperty();
-    private IntegerProperty agua = new SimpleIntegerProperty();
-    private IntegerProperty comida = new SimpleIntegerProperty();
-    private IntegerProperty pozo = new SimpleIntegerProperty();
-    private IntegerProperty biblioteca = new SimpleIntegerProperty();
-    private IntegerProperty tesoro = new SimpleIntegerProperty();
+        private IntegerProperty agua = new SimpleIntegerProperty();
+        private IntegerProperty comida = new SimpleIntegerProperty();
+        private IntegerProperty pozo = new SimpleIntegerProperty();
+        private IntegerProperty biblioteca = new SimpleIntegerProperty();
+        private IntegerProperty tesoro = new SimpleIntegerProperty();
 
-    private IntegerProperty montaña = new SimpleIntegerProperty();
-    private StringProperty nombre = new SimpleStringProperty();
+        private IntegerProperty montaña = new SimpleIntegerProperty();
+        private StringProperty nombre = new SimpleStringProperty();
 
     public RecursosEIndividuosProperties(DataModel original){
         setOriginal(original);
@@ -64,6 +64,32 @@ public class RecursosEIndividuosProperties {
     public Property<String> nombreProperty() {
         return nombre;
     }
+
+    public IntegerProperty aguaProperty() {
+        return agua;
+    }
+
+    public IntegerProperty comidaProperty() {
+        return comida;
+    }
+
+    public IntegerProperty pozoProperty() {
+        return pozo;
+    }
+
+    public IntegerProperty bibliotecaProperty() {
+        return biblioteca;
+    }
+
+    public IntegerProperty tesoroProperty() {
+        return tesoro;
+    }
+
+    public IntegerProperty montañaProperty() {
+        return montaña;
+    }
+
+
 
 
 }

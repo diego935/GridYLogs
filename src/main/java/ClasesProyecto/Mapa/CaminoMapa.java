@@ -11,7 +11,13 @@ public class CaminoMapa<T> {
         this.camino = camino;
     }
 
+    public CaminoMapa() {
+        this.coste = 0;
+        this.camino = null;
+    }
+
     public ListaSE<Casilla<T>> getCamino() {
+        if (this.camino==null) return null;
         return camino;
     }
 

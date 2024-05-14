@@ -43,15 +43,15 @@ public class HelloController {
     protected GridPane tableroDeJuego;
     private Global juego;
     boolean ya;
-    private ParameterDataModel parametrosData = new ParameterDataModel(7, 10, "Juanito");
-    private ParameterDataModelProperties modeloParaGUICompartido = new ParameterDataModelProperties(parametrosData);
+    private DataModel parametrosData = new DataModel(7, 10, "Juanito",10,10,10,10,101,0);
+    private RecursosEIndividuosProperties modeloParaGUICompartido = new RecursosEIndividuosProperties(parametrosData);
 
     //juego
 
     @FXML
     protected void onPlay() {
         generarMapa.setVisible(true);
-        generarMapa.setDisable(false);
+        //generarMapa.setDisable(false);
 
     }
 
@@ -135,14 +135,21 @@ public class HelloController {
 
     @FXML
     protected void onMiBotonNuevaVentanaParametrosClick() throws IOException {
-
-
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(AplicationVentanaRecursoEIndividuos.class.getResource("ventanaRecursosEIndividuos.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+            stage.setTitle("Establezca parámetros: ");
+            stage.setScene(scene);
+            ControllerVentanaRecursoEIndividuos p = fxmlLoader.getController();
+            p.loadUserData(this.modeloParaGUICompartido); //Carga los datos del modelo en el gui, todas las ventanas comparten el mismo en este caso
+            p.setStage(stage);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
 
         /*Stage stage = new Stage();
@@ -161,6 +168,7 @@ public class HelloController {
 
 
     }
+
 }
 
 

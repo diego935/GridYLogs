@@ -38,22 +38,22 @@ public class básico extends Individuo{
         System.out.println(random);
 
         if (random==0) {
-            if (this.pos[0] !=0) return 2;
+            if (this.pos[0] !=0) return 1;
             return 0;
         }
         if (random==1) {
             if (this.pos[0] != Global.getMax()[0])  return 0;
-            return 2;
+            return 1;
         }
 
         if (random==2) {
-            if (this.pos[1] != 0) return 3;
+            if (this.pos[1] != 0) return 2;
 
-            return  1;
+            return  3;
         }
         if (random==3){
-            if (this.pos[1] != Global.getMax()[1])  return 1;
-            return 3;
+            if (this.pos[1] != Global.getMax()[1])  return 3;
+            return 2;
         }
         return -1;
     }

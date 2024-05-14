@@ -30,13 +30,15 @@ public class Normal extends Individuo{
         if(this.pos == objetivo) objetivo = getRecurspRandom();
         Integer[] proximaPos = objetivo;
         proximaPos[0] = proximaPos[0] - this.pos[0];
+        proximaPos[1] = proximaPos[1] - this.pos[1];
+
         if(Math.abs(proximaPos[0])>= Math.abs(proximaPos[1])) {
-            if (proximaPos[0] == 1) return 0;
-            if (proximaPos[0] == -1) return 2;
+            if (proximaPos[0] >=1) return 0;
+            if (proximaPos[0] <= -1) return 2;
         }
         else {
-            if (proximaPos[1] == 1) return 1;
-            if (proximaPos[1] == -1) return 3;
+            if (proximaPos[1] >= 1) return 1;
+            if (proximaPos[1] <= -1) return 3;
         }
     return 0;
     }

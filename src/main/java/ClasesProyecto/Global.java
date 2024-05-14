@@ -14,7 +14,7 @@ public class Global {
     public static Map<Individuo, Integer[]> individuos = new Map<>();
     public static Mapa<Casilla> mapa;
     public static ListaSE<Recurso> recursos = new ListaSE<>();
-    public static double pRecursos=0.1;
+    public static double pRecursos=0.05/10;
     public static int pAgua=1;
     public static int pComida=1;
     public static int pMontaña=1;
@@ -57,9 +57,10 @@ public class Global {
             int movimiento = i.mover();
 
             if (movimiento == 0) moverIndividuo(i, new Integer[]{1, 0});
-            else if (movimiento==2) {moverIndividuo(i, new Integer[]{-1, 0});}
-            else if (movimiento==3) {moverIndividuo(i, new Integer[]{0, -1});}
-            else if(movimiento == 4) moverIndividuo(i, new Integer[]{0, 1});
+            else if (movimiento==1) {moverIndividuo(i, new Integer[]{-1, 0});}
+            else if (movimiento==2) {moverIndividuo(i, new Integer[]{0, -1});}
+            else if(movimiento == 3) moverIndividuo(i, new Integer[]{0, 1});
+            //Podría optimizarse más metiendo eso dentro de la función move del individuo pero bueno.
         }
     }
 
@@ -132,12 +133,12 @@ public static int[] getMax() {
 }
 
 public void pasarTurno() {
-    this.ActualizarVida();
+    //this.ActualizarVida();
     this.ActualizarRecursos();
     this.generarRecursos();
     this.moverIndividuos();
-    this.reproducción();
-    this.aplicarRecursos();
+    //this.reproducción();
+    //this.aplicarRecursos();
 
     turno++;
 

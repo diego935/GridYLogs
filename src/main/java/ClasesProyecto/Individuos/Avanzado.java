@@ -2,17 +2,14 @@ package ClasesProyecto.Individuos;
 
 import ClasesProyecto.Mapa.CaminoMapa;
 import ClasesProyecto.Mapa.Casilla;
-import Excepciones.Abajo;
-import Excepciones.Arriba;
-import Excepciones.Derecha;
-import Excepciones.Izquierda;
 import Listas.ListasSE.Map;
 
 import static ClasesProyecto.Global.mapa;
 
 public class Avanzado extends Individuo{
     Integer[] objetivo;
-
+    int paso = 1;
+    CaminoMapa<Casilla> camino = new CaminoMapa<>();
     public Avanzado(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre, Individuo madre){
         super(id,  vida, generación,  pClonacion, pReproduccion, padre, madre);
     }
@@ -39,22 +36,56 @@ public class Avanzado extends Individuo{
     @Override
     public int mover() {
 
-        if (objetivo==null) objetivo = recursoPositivoCercano();
+       /* if (objetivo==null) objetivo = recursoPositivoCercano();
         if(pos[0]==objetivo[0] && pos[1]==objetivo[1]) objetivo = recursoPositivoCercano();
+
             //Crea el mapa de mejores rutas a cualquier punto del mapa
             Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
             System.out.println(dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]));
 
             Integer[] proximaPos = dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]).getCamino().getElemento(1).getPos();
+
             proximaPos[0] = proximaPos[0] - this.pos[0];
             if (proximaPos[0] == 1) return 0;
-            if (proximaPos[0] == -1) return 2;
+            if (proximaPos[0] == -1) return 1;
 
             proximaPos[1] = proximaPos[1] - this.pos[1];
-            if (proximaPos[1] == 1) return 1;
-            if (proximaPos[1] == -1) return 3;
+            if (proximaPos[1] == 1) return 3;
+            if (proximaPos[1] == -1) return 2;
 
             return 12;
+    */
+            if (camino.getCamino()==null){
+
+                objetivo = recursoPositivoCercano();
+                if((pos[0]==objetivo[0] && pos[1]==objetivo[1])|| objetivo ==null) objetivo = IndividuoCercano();//En caso de no encontrar ningun recurso y ya estar en el centro del mapa busca el camino hacía el individuo más cercano para reproducirse.
+
+                //Crea el mapa de mejores rutas a cualquier punto del mapa
+                Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
+                System.out.println(dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]));
+
+                camino = dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]);
+                this.paso =1;
+            }
+            if (camino.getCamino().getElemento(paso)!= null){
+
+                Integer[] proximaPos = camino.getCamino().getElemento(paso++).getPos();
+
+
+        proximaPos[0] = proximaPos[0] - this.pos[0];
+        if (proximaPos[0] == 1) return 0;
+        if (proximaPos[0] == -1) return 1;
+
+        proximaPos[1] = proximaPos[1] - this.pos[1];
+        if (proximaPos[1] == 1) return 3;
+        if (proximaPos[1] == -1) return 2;
+
+
+    } else {
+        camino =null;
+        return this.mover();
+    }
+        return 12;
     }
 
 

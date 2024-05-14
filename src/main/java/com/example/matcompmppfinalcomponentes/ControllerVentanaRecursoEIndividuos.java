@@ -3,6 +3,7 @@ package com.example.matcompmppfinalcomponentes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Tab;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -64,8 +65,26 @@ public class ControllerVentanaRecursoEIndividuos {
     @FXML
     private Tab turnosDeVidaTab;
 
+    public RecursosEIndividuosProperties model;
+    private Stage scene;
+    private DataModel data = new DataModel(10,1,"1",10,10,10,10,10,10);
+
     @FXML
-    void initialize() {
+    protected void onBotonGuardarClick() {
+        model.commit();
+    }
+    @FXML
+    protected void onBotonReiniciarClick() {
+        model.rollback();
+    }
+
+    @FXML protected void onBotonCerrarClick(){
+        scene.close();
+    }
+
+
+    @FXML
+    public void initialize() {
         assert porcentajeAparicionRecursosTab != null : "fx:id=\"porcentajeAparicionRecursosTab\" was not injected: check your FXML file 'Untitled'.";
         assert porcentajeRecursosTab != null : "fx:id=\"porcentajeRecursosTab\" was not injected: check your FXML file 'Untitled'.";
         assert sliderNumIndividuosIniciales != null : "fx:id=\"sliderNumIndividuosIniciales\" was not injected: check your FXML file 'Untitled'.";
@@ -84,5 +103,33 @@ public class ControllerVentanaRecursoEIndividuos {
         assert turnosDeVidaTab != null : "fx:id=\"turnosDeVidaTab\" was not injected: check your FXML file 'Untitled'.";
 
     }
+
+    protected void updateGUIwithModel() {
+        sliderProbAgua.valueProperty().bindBidirectional(model.aguaProperty());
+        sliderProbComida.valueProperty().bindBidirectional(model.comidaProperty());
+        sliderProbPozo.valueProperty().bindBidirectional(model.pozoProperty());
+        sliderProbBiblioteca.valueProperty().bindBidirectional(model.bibliotecaProperty());
+        sliderProbTesoro.valueProperty().bindBidirectional(model.tesoroProperty());
+        sliderProbMontana.valueProperty().bindBidirectional(model.montañaProperty());
+
+
+        //sliderVida.valueProperty().bindBidirectional(model.vidaProperty());
+        //textfieldNombre.textProperty().bindBidirectional(model.nombreProperty());
+
+    }
+
+    /**
+     * Este método recibe los datos del modelo y los establece
+     **/
+    public void loadUserData(RecursosEIndividuosProperties parametrosData) {
+        this.model = parametrosData;
+        this.updateGUIwithModel();
+    }
+
+    public void setStage(Stage s){
+        this.scene = s;
+    }
+
+
 
 }

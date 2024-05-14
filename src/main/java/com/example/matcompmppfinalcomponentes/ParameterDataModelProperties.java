@@ -23,6 +23,7 @@ public class ParameterDataModelProperties {
         original.setVelocidad(velocidad.get());
         original.setVida(vida.get());
         original.setNombre(nombre.get());
+
     }
 
     public void rollback(){

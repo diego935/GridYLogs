@@ -119,7 +119,7 @@ public abstract class Individuo {
         return pos;
     }
 
-    public abstract int mover();
+    public abstract int mover(); //0 es Arriba 1 abajo 2 izquierda y 3 derecha
 
     public abstract int Type();
 
@@ -153,6 +153,7 @@ public abstract class Individuo {
 
         for (Object r2 : recursos.values()) {
             Recurso r = (Recurso) r2;
+            if (r.getTipo() ==2 || r.getTipo() ==6) continue;
             recursoPos = r.getPos();
             distancia = distancia(recursoPos, this.pos);
             if (distancia < min && distancia!= 0) {
@@ -174,7 +175,7 @@ public abstract class Individuo {
             Individuo i = (Individuo) i2;
             pos = i.getPos();
             distancia = distancia(pos, this.pos);
-            if (distancia < min) {
+            if (distancia < min && distancia!=0) {
                 min = distancia;
                 cercanoPos = pos;
             }

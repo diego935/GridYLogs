@@ -20,6 +20,17 @@ public class DataModel {
         this.velocidad = velocidad;
         this.nombre = nombre;
     }
+    public DataModel(int vida, int velocidad, String nombre,Integer agua, Integer comida,Integer montaña,Integer tesoro,Integer biblioteca,Integer pozo ) {
+        this.vida = vida;
+        this.velocidad = velocidad;
+        this.nombre = nombre;
+        this.agua = agua;
+        this.comida = comida;
+        this.pozo = pozo;
+        this.montaña = montaña;
+        this.tesoro = tesoro;
+        this.biblioteca = biblioteca;
+    }
 
     /** Setters y Getters **/
     public int getVida() {

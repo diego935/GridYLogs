@@ -1,4 +1,4 @@
-package com.example.matcompmppfinalcomponentes;
+/*package com.example.matcompmppfinalcomponentes;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,9 +16,9 @@ public class ParameterController implements Initializable {
 
     /**
      * Hooks de conexión entre los controles visuales y el código, llevan @FXML para identificarlos
-     **/
+     **//*
 
-    @FXML
+   /* @FXML
     private Slider sliderVelocidad;
 
     @FXML
@@ -29,7 +29,7 @@ public class ParameterController implements Initializable {
 
     /**
      * Controlador con modelo de datos en el que trabajar
-     **/
+     **//*/*
     private ParameterDataModelProperties model;
     private Stage scene;
     private ParameterDataModel parametrosData = new ParameterDataModel(7, 10, "Juanito");
@@ -37,11 +37,11 @@ public class ParameterController implements Initializable {
 
 
 
-    /** Métodos de respuesta a eventos: El GUI llama a estos métodos del controlador para realizar operaciones **/
+    /** Métodos de respuesta a eventos: El GUI llama a estos métodos del controlador para realizar operaciones **//*
     /**
      * La convención es llamarlos on+TipoControl+operacionalaqueresponde :
      * onMiBotonEjemploClick indica que es un "manejador de evento de tipo click" del botón MiBotonEjemplo del interfaz
-     */
+     *//*
 
 
     @FXML
@@ -60,7 +60,7 @@ public class ParameterController implements Initializable {
 
     /**
      * Métodos de configuración
-     **/
+     **//*
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.print("Inicialización en ejecución del controlador de parámetros\n");
@@ -72,7 +72,7 @@ public class ParameterController implements Initializable {
 
     /**
      * Este método se encarga de conectar los datos del modelo con el GUI
-     **/
+     **//*
     protected void updateGUIwithModel() {
         sliderVelocidad.valueProperty().bindBidirectional(model.velocidadProperty());
         sliderVida.valueProperty().bindBidirectional(model.vidaProperty());
@@ -82,8 +82,8 @@ public class ParameterController implements Initializable {
 
     /**
      * Este método recibe los datos del modelo y los establece
-     **/
-    public void loadUserData(ParameterDataModelProperties parametrosData) {
+     **//*
+    public void loadUserData(RecursosEIndividuosProperties parametrosData) {
         this.model = parametrosData;
         this.updateGUIwithModel();
     }
@@ -120,4 +120,4 @@ public class ParameterController implements Initializable {
 
 
 
-}
+}*/
