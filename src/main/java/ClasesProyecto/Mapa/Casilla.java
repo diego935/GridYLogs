@@ -1,7 +1,9 @@
 package ClasesProyecto.Mapa;
 
 import ClasesProyecto.Global;
+import ClasesProyecto.Individuos.Avanzado;
 import ClasesProyecto.Individuos.Individuo;
+import ClasesProyecto.Individuos.Normal;
 import ClasesProyecto.Individuos.básico;
 import ClasesProyecto.Recurso;
 import Excepciones.Muerte;
@@ -20,6 +22,7 @@ public class Casilla<Tipo> {
     private Map<Casilla<Tipo>, Enlace<Tipo>> salidas = new Map<>();
     public ListaSE<Individuo> colonos = new ListaSE<>();
     public ListaSE<Recurso> recursos = new ListaSE<>();
+
     public Integer[] pos;
     public int peso =40;
     public Casilla(Tipo dato) {
@@ -146,16 +149,79 @@ public class Casilla<Tipo> {
     public void gestionReproducción() throws Muerte {
         Individuo c1 = colonos.getElemento(0);
         Individuo c2 = colonos.getElemento(1);
-        String tipo = "básico" ;
-        if (c1.reproduce() && c2.reproduce()) {
-            // if(c1.Type()==c2.Type()){
-            /*if (c1.Type()==0)*/
-            System.out.println("Ha nacido un colono" + tipo + "Con ID=" + id );
-            básico i = new básico(id++, 10, turno, (c1.pClonacion + c2.pClonacion) / 2, (c1.pReproduccion + c2.pReproduccion) / 2, c1, c2);
+        boolean b1 = c1.reproduce();
+        boolean b2 = c2.reproduce();
 
-            // }
+        if (b1 && b2 ){
+            Reproduce(c1,c2);
+        } else if (colonos.numElementos()==3 &&(b1||b2)) {
+            if (colonos.getElemento(2).reproduce()){
+                if(b1) Reproduce(c1,colonos.getElemento(2));
+            } else Reproduce(c2,colonos.getElemento(2));
+        }
+
+        while (this.colonos.numElementos()>3){
+            Individuo minimo = this.colonos.getElemento(0); // No uso c1 por qué podria haber muerto ya.
+            for(Object c3 : this.colonos.values()){
+                Individuo c = (Individuo) c3;
+                if (c.getVida()< minimo.getVida()) minimo = c;
+            }
+            minimo.morir();
+        }
+    }
+
+
+
+
+
+    public void Reproduce(Individuo i1, Individuo i2){
+        int type;
+        if (i1.Type() == i2.Type()){
+            type= i1.Type();
+        }
+        else {
+            if (Math.random() <= porcentajeMejora){
+                type =Math.max(i1.Type(),i2.Type());
+            }else {
+                type = Math.min(i1.Type(),i2.Type());
+            }
+        }
+        System.out.println("Ha nacido un colono " + type + " Con ID=" + id );
+        //System.out.println(this.pos[0]+","+this.pos[1]+" De la casilla");
+        if (type ==0){
+            básico i = new básico(id++, 10, turno, (i1.pClonacion + i2.pClonacion) / 2, (i1.pReproduccion + i2.pReproduccion) / 2, i1, i2);
+            i.setPos(this.pos);
             Global.addIndividuo(i);
-            //id++;
+        } else if (type==1) {
+            //System.out.println("Ha nacido un colono " + type + " Con ID=" + id );
+            Normal i = new Normal(id++, 10, turno, (i1.pClonacion + i2.pClonacion) / 2, (i1.pReproduccion + i2.pReproduccion) / 2, i1, i2);
+            i.setPos(this.pos);
+            Global.addIndividuo(i);
+        }else {
+            //System.out.println("Ha nacido un colono " + type + " Con ID=" + id );
+            Avanzado i = new Avanzado(id++, 10, turno, (i1.pClonacion + i2.pClonacion) / 2, (i1.pReproduccion + i2.pReproduccion) / 2, i1, i2);
+            i.setPos(this.pos);
+            Global.addIndividuo(i);
+        }
+    }
+    public void clona(Individuo individuo) throws Muerte{
+        int type = individuo.Type();
+        System.out.println(this.pos[0]+","+this.pos[1]);
+        if (type ==0){
+            System.out.println("Ha sido clonado un colono " + type + " Con ID=" + id );
+            básico i = new básico(id++, turno,individuo);
+            i.setPos(this.pos);
+            Global.addIndividuo(i);
+        } else if (type==1) {
+            System.out.println("Ha sido clonado un colono " + type + " Con ID=" + id );
+            Normal i = new Normal(id++, turno, individuo);
+            i.setPos(this.pos);
+            Global.addIndividuo(i);
+        }else {
+            System.out.println("Ha sido clonado un colono " + type + " Con ID=" + id );
+            Avanzado i = new Avanzado(id++, turno, individuo);
+            i.setPos(this.pos);
+            Global.addIndividuo(i);
         }
         while (this.colonos.numElementos()>3){
             Individuo minimo = this.colonos.getElemento(0); // No uso c1 por qué podria haber muerto ya.
@@ -165,6 +231,7 @@ public class Casilla<Tipo> {
             }
             minimo.morir();
         }
+
     }
 
     public void aplicarRecursos() throws Muerte {

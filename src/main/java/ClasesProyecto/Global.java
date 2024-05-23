@@ -14,14 +14,16 @@ public class Global {
     public static Map<Individuo, Integer[]> individuos = new Map<>();
     public static Mapa<Casilla> mapa;
     public static ListaSE<Recurso> recursos = new ListaSE<>();
-    public static double pRecursos=0.05/10;
+    public static double pRecursos=0.05/7;
     public static int pAgua=1;
     public static int pComida=1;
     public static int pMontaña=1;
-    public static int pTesoro=1;
-    public static int pBiblio=1;
+    public static int pTesoro=1000;
+    public static int pBiblio=1000;
     public static int pPozo=1;
-    public static float porcentajeMejora;
+    public static double porcentajeMejora =0.5;
+    public static double mejoraTesoro =0.3;
+    public static double mejoraBiblio =0.3;
 
 
 
@@ -34,6 +36,7 @@ public class Global {
 
     public void moverIndividuo(Individuo i, Integer[] dirección) {
         Integer[] pos = individuos.getFromId(i);
+        try{
         mapa.casillas[pos[0]][pos[1]].delColono(i);
         pos[0] += dirección[0];
         pos[1] += dirección[1];
@@ -41,9 +44,13 @@ public class Global {
         individuos.eliminar(i);
         individuos.add(pos, i);
         mapa.casillas[pos[0]][pos[1]].addColono(i);
+    }catch (NullPointerException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void addIndividuo(Individuo i) {
+        System.out.println(i.pos[0]+","+i.pos[1]);
         mapa.casillas[i.pos[0]][i.pos[1]].addColono(i);
         individuos.add(i.getPos(), i);
 
@@ -99,7 +106,7 @@ public void ActualizarVida() {
 public void reproducción() {
     for (Casilla[] casillas : mapa.casillas) {
         for (Casilla casilla : casillas) {
-            if (casilla.colonos.numElementos() == 2 /*Se podría poner tambien como mayor que 2*/) {
+            if (casilla.colonos.numElementos() >= 2 /*Se podría poner tambien como mayor que 2*/) {
                 try {
                     casilla.gestionReproducción();
                 } catch (Muerte muerte) {
@@ -107,6 +114,20 @@ public void reproducción() {
 
             }
         }
+    }
+}
+
+public void clonacion(){
+    for (Object i2 : individuos.keys()) {
+        Individuo i = (Individuo)i2;
+        if (Math.random() <=i.pClonacion ) {
+                try {
+                    mapa.casillas[i.pos[0]][i.pos[1]].clona(i);
+                } catch (Muerte muerte) {
+                }
+
+            }
+
     }
 }
 
@@ -133,13 +154,17 @@ public static int[] getMax() {
 }
 
 public void pasarTurno() {
-    //this.ActualizarVida();
-    this.ActualizarRecursos();
-    this.generarRecursos();
-    this.moverIndividuos();
-    //this.reproducción();
-    //this.aplicarRecursos();
-
+//        try {
+            this.ActualizarVida();
+            this.ActualizarRecursos();
+            this.generarRecursos();
+            this.moverIndividuos();
+            this.reproducción();
+            this.clonacion();
+            this.aplicarRecursos();
+     //   } catch (Exception a){
+        //    System.out.println("Fok");
+       // }
     turno++;
 
     /*if (turno % 10 == 0) {

@@ -5,24 +5,26 @@ import static ClasesProyecto.Global.mapa;
 public class Normal extends Individuo{
 
     Integer[] objetivo;
-    public Normal(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre, Individuo madre){
+    public Normal(int id, int vida, int generación, double pClonacion, double pReproduccion, Individuo padre, Individuo madre){
         super(id,  vida, generación,  pClonacion, pReproduccion, padre, madre);
     }
-    public Normal(int id, int vida, int generación, float pClonacion, float pReproduccion){
+    public Normal(int id, int vida, int generación, double pClonacion, double pReproduccion){
         super(id,  vida, generación,  pClonacion, pReproduccion);
     }
-    public Normal(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre){
+    /*public Normal(int id, int vida, int generación, double pClonacion, double pReproduccion, Individuo padre){
         super(id,  vida, generación,  pClonacion, pReproduccion, padre);
-
+    }*/
+    public Normal(int id,int generación, Individuo padre){
+        super(id, generación, padre);
     }
 
 
-    @Override
+    /*@Override
     public Normal clone(int id, int vida, int generación) {
         Normal b1 = new Normal(id, vida, generación,this.pClonacion,this.pReproduccion,this );
         b1.setPos(this.pos);
         return b1;
-    }
+    }*/
 
     @Override
     public int mover() {

@@ -15,7 +15,7 @@
          <GridPane fx:id="tableroDeJuego">
    </GridPane>
           <Button fx:id="generarMapa" onAction="#onHelloButtonClick" text="Crear Mapa" />
-         <Button id="botonTurnos" fx:id="botonTurnos" cancelButton="true" mnemonicParsing="false" onAction="#onPassTurnButton" text="Siguiente turno" />
+         <Button id="botonTurnos" fx:id="botonTurnos" cancelButton="true" mnemonicParsing="false" onAction="#onPassTurnButton" text="Iniciar" />
       </children>
    </HBox>
 

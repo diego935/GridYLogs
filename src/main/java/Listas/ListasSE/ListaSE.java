@@ -11,10 +11,11 @@ public class ListaSE<tipo> {
         return this.primero == null;
     }
 
-    public boolean is(tipo dato){
-        if (this.primero==null) return false;
+    public boolean is(tipo dato) {
+        if (this.primero == null) return false;
         return this.primero.is(dato);
     }
+
     public void add(tipo dato) {
         //El orden no está definido, pero en caso de hacerlo habría que recorrerla al revés, si metes "1" y luego "2" el primer elemento por el orden natural será el "2".
         ElementoSE<tipo> elem = new ElementoSE<>(dato);
@@ -52,39 +53,46 @@ public class ListaSE<tipo> {
             elem.setSiguiente(elem.getSiguiente().getSiguiente());
         }
     }
+
     public void delDato(tipo dato) {
-       if(this.primero.getData().equals((dato))) this.primero = this.primero.getSiguiente();
-       else{
-           ElementoSE<tipo> elem = this.primero;
-        while (!elem.getSiguiente().getData().equals(dato)){
+        if (this.primero ==null) return;
+        if (this.primero.getData().equals((dato))) this.primero = this.primero.getSiguiente();
+        else {
+            ElementoSE<tipo> elem = this.primero;
             try {
-                elem = elem.getSiguiente();
-            } catch (Exception e){
+                while (!elem.getSiguiente().getData().equals(dato)) {
+                    elem = elem.getSiguiente();
+                }
+                elem.setSiguiente(elem.getSiguiente().getSiguiente());
+            } catch (Exception e) {
                 System.out.println("No existe tal elemento." + dato);
                 return;
+
+
             }
         }
-
-        elem.setSiguiente(elem.getSiguiente().getSiguiente());
-    }
-
     }
 
     public void imprimirLista() {
         if (this.primero == null) System.out.println("[]");
         ElementoSE<tipo> elem = this.primero;
         do {
-            System.out.print(elem.getData()+", ");
+            System.out.print(elem.getData() + ", ");
             elem = elem.getSiguiente();
         } while (elem != null);
 
     }
 
-    public tipo getElemento(int pos){
+    public tipo getElemento(int pos) {
         ElementoSE<tipo> elem = this.primero;
-        for (int i = 0;i< pos ;i++)
-            elem= elem.getSiguiente();
-        return elem.getData();
+        try {
+            for (int i = 0; i < pos; i++)
+                elem = elem.getSiguiente();
+            return elem.getData();
+        } catch (Exception a) {
+            System.out.println("Index out of Bounds ");
+        }
+        return null;
     }
 
     @Override
@@ -94,20 +102,20 @@ public class ListaSE<tipo> {
         ElementoSE<tipo> elem = this.primero;
         do {
 
-            print += (elem.getData()+", ");
+            print += (elem.getData() + ", ");
             elem = elem.getSiguiente();
         } while (elem != null);
 
-    return print;
+        return print;
     }
 
-    public Object[] values(){
+    public Object[] values() {
         //Salen en orden inverso a como han sido añadidos
         int numElementos = this.numElementos();
         tipo[] datos;
         datos = (tipo[]) new Object[numElementos];
         ElementoSE<tipo> elem = this.primero;
-        for (int i =0;i<numElementos;i++){
+        for (int i = 0; i < numElementos; i++) {
             datos[i] = elem.getData();
             elem = elem.getSiguiente();
         }

@@ -58,10 +58,10 @@ public class Mapa<T> {
             for (int i = 0; i < n ; i++) {
                 if (j == 0) {
                     //casillas[i][j].addEntrada(casillas[i][j+1]);
-                    casillas[i][j].addSalida(casillas[i ][j+1]);
+                    casillas[i][j].addSalida(casillas[i][j+1]);
                 } else {
                     //casillas[i][j].addEntrada(casillas[i ][j-1]);
-                    casillas[i][j].addSalida(casillas[i ][j-1]);
+                    casillas[i][j].addSalida(casillas[i][j-1]);
                 }
             }
         }

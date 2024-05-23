@@ -8,15 +8,17 @@ import Excepciones.Izquierda;
 
 public class básico extends Individuo{
 
-    public básico(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre, Individuo madre){
+    public básico(int id, int vida, int generación, double pClonacion, double pReproduccion, Individuo padre, Individuo madre){
         super(id,  vida, generación,  pClonacion, pReproduccion, padre, madre);
     }
-    public básico(int id, int vida, int generación, float pClonacion, float pReproduccion){
+    public básico(int id, int vida, int generación, double pClonacion, double pReproduccion){
         super(id,  vida, generación,  pClonacion, pReproduccion);
     }
-    public básico(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre){
+    /*public básico(int id, int vida, int generación, double pClonacion, double pReproduccion, Individuo padre){
         super(id,  vida, generación,  pClonacion, pReproduccion, padre);
-
+    }*/
+    public básico(int id,int generación, Individuo padre){
+        super(id, generación, padre);
     }
 
     /*@Override
@@ -24,12 +26,12 @@ public class básico extends Individuo{
         return new Individuo(id, int ) ;
     }*/
 
-    @Override
+    /*@Override
     public básico clone(int id, int vida, int generación) {
         básico b1 = new básico(id, vida, generación,this.pClonacion,this.pReproduccion,this );
         b1.setPos(this.pos);
         return b1;
-    }
+    }*/
 
 
     @Override

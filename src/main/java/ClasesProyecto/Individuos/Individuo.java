@@ -2,6 +2,7 @@ package ClasesProyecto.Individuos;
 
 import Arboles.ArbolBinario;
 import Arboles.ArbolGenialogico;
+import ClasesProyecto.Global;
 import ClasesProyecto.Recurso;
 import Excepciones.*;
 
@@ -14,15 +15,15 @@ public abstract class Individuo {
     public int generación;
     public ArbolBinario<Individuo> familia;
     public int vida;
-    public float pReproduccion;
-    public float pClonacion;
+    public double pReproduccion;
+    public double pClonacion;
     public Integer[] pos;
 
     public Individuo() {
 //Para Debug
     }
 
-    public Individuo(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre, Individuo madre) {
+    public Individuo(int id, int vida, int generación, double pClonacion, double pReproduccion, Individuo padre, Individuo madre) {
         familia = new ArbolGenialogico(this, padre, madre);
         this.vida = vida;
         this.id = id;
@@ -32,7 +33,7 @@ public abstract class Individuo {
 
     }
 
-    public Individuo(int id, int vida, int generación, float pClonacion, float pReproduccion) {
+    public Individuo(int id, int vida, int generación, double pClonacion, double pReproduccion) {
         familia = new ArbolGenialogico(this);
         this.vida = vida;
         this.id = id;
@@ -42,13 +43,13 @@ public abstract class Individuo {
 
     }
 
-    public Individuo(int id, int vida, int generación, float pClonacion, float pReproduccion, Individuo padre) {
+    public Individuo(int id, int generación, Individuo padre) {
         //Si se clona que reciba todos los elementos del padre
         this.id = id;
-        this.vida = vida;
-        this.pClonacion = pClonacion;
-        this.pReproduccion = pReproduccion;
-        this.familia = padre.getFamilia();
+        this.vida = padre.vida;
+        this.pClonacion = padre.pClonacion;
+        this.pReproduccion = padre.pReproduccion;
+        this.familia = new ArbolGenialogico(this, padre);
     }
 
     public int getId() {
@@ -80,7 +81,7 @@ public abstract class Individuo {
         this.vida += vida;
     }
 
-    public float getpReproduccion() {
+    public double getpReproduccion() {
         return pReproduccion;
     }
 
@@ -92,7 +93,7 @@ public abstract class Individuo {
         this.pReproduccion += pReproduccion / 100;
     }
 
-    public float getpClonacion() {
+    public double getpClonacion() {
         return pClonacion;
     }
 
@@ -104,7 +105,7 @@ public abstract class Individuo {
         this.pClonacion += pClonacion / 100;
     }
 
-    public abstract Individuo clone(int id, int vida, int generación);
+    //public abstract Individuo clone(int id, int vida, int generación);
 
     public void morir() throws Muerte {
         throw new Muerte(this);
@@ -137,15 +138,48 @@ public abstract class Individuo {
         if (tipo == 1) this.vida += 2;
         if (tipo == 2) this.vida += 10;
         if (tipo == 3) this.vida -= 2;
-        //if (tipo ==4) this.vida +=2;
-        //if (tipo ==5) this.vida +=2;
+        if (tipo == 4) this.pReproduccion += mejoraTesoro;
+        if (tipo == 5) {
+            this.pClonacion += mejoraBiblio;
+            this.evolucionar();
+        }
+
         if (tipo == 6) this.morir();
+
+    }
+
+    public void evolucionar() throws Muerte {
+        if (Type() == 2) return;
+        if (Type() == 0){
+            Normal i = new Normal(this.id,
+                    this.vida,
+                    this.generación,
+                    this.pClonacion,
+                    this.pReproduccion,
+                    this.familia.getSubArbolIzquierda().getListaDatosNivel(0).recuperar(0),
+                    this.familia.getSubArbolDerecha().getListaDatosNivel(0).recuperar(0));
+
+            Global.addIndividuo(i);
+            this.morir();
+        }else {
+            Avanzado i = new Avanzado(this.id,
+                    this.vida,
+                    this.generación,
+                    this.pClonacion,
+                    this.pReproduccion,
+                    this.familia.getSubArbolIzquierda().getListaDatosNivel(0).recuperar(0),
+                    this.familia.getSubArbolDerecha().getListaDatosNivel(0).recuperar(0));
+
+            Global.addIndividuo(i);
+            this.morir();
+        }
+
 
     }
 
 
     public Integer[] recursoPositivoCercano() {
-        if(recursos.isVacia()) return new Integer[]{(mapa.getMax()[0]+1)/2,(mapa.getMax()[1]+1)/2};
+        if (recursos.isVacia()) return new Integer[]{(mapa.getMax()[0] + 1) / 2, (mapa.getMax()[1] + 1) / 2};
         Integer[] recursoCercanoPos = new Integer[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
         int min = Integer.MAX_VALUE;
         Integer[] recursoPos;
@@ -153,10 +187,10 @@ public abstract class Individuo {
 
         for (Object r2 : recursos.values()) {
             Recurso r = (Recurso) r2;
-            if (r.getTipo() ==2 || r.getTipo() ==6) continue;
+            if (r.getTipo() == 2 || r.getTipo() == 6) continue;
             recursoPos = r.getPos();
             distancia = distancia(recursoPos, this.pos);
-            if (distancia < min && distancia!= 0) {
+            if (distancia < min && distancia != 0) {
                 min = distancia;
                 recursoCercanoPos = recursoPos;
             }
@@ -175,7 +209,7 @@ public abstract class Individuo {
             Individuo i = (Individuo) i2;
             pos = i.getPos();
             distancia = distancia(pos, this.pos);
-            if (distancia < min && distancia!=0) {
+            if (distancia < min && distancia != 0) {
                 min = distancia;
                 cercanoPos = pos;
             }
@@ -183,8 +217,8 @@ public abstract class Individuo {
         return cercanoPos;
     }
 
-    public Integer[] getRecurspRandom(){
-        if (recursos.isVacia()) return new Integer[]{(getMax()[0]+1)/2,(getMax()[1]+1)/2};
+    public Integer[] getRecurspRandom() {
+        if (recursos.isVacia()) return new Integer[]{(getMax()[0] + 1) / 2, (getMax()[1] + 1) / 2};
         int random = (int) (30 * Math.random()) % recursos.numElementos();
         return recursos.getElemento(random).getPos();
 
@@ -196,4 +230,11 @@ public abstract class Individuo {
         int distancia = Math.abs(p1[0] - p2[0]) + Math.abs(p1[0] - p2[0]);
         return distancia;
     }
+
+    /*public void clona(Individuo i){
+        this.pos = i.pos;
+        this.pClonacion = i.pClonacion;
+        this.pReproduccion = i.pReproduccion;
+        this
+    }*/
 }

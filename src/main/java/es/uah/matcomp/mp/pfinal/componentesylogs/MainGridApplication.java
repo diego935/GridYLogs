@@ -3,6 +3,7 @@ package es.uah.matcomp.mp.pfinal.componentesylogs;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -71,7 +72,7 @@ public class MainGridApplication extends Application {
     /**
      * En este ejemplo, vamos a crear programáticamente la ventan en la que trabajaremos.
      */
-    public static Label[][] labelMap =new Label[n][m];
+    public static Button[][] labelMap = new Button[n][m];
     GridPane mainGrid = new GridPane();
 
     @FXML
