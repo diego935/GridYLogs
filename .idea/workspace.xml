@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment="Ventana controles sin lógica">
+    <list default="true" id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/proyecto.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Normal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/básico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/básico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/CaminoMapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/CaminoMapa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/AplicationVentanaRecursoEIndividuos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/AplicationVentanaRecursoEIndividuos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ControllerVentanaRecursoEIndividuos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ControllerVentanaRecursoEIndividuos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ParameterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ParameterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ParameterDataModelProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/ParameterDataModelProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/RecursosEIndividuosProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/RecursosEIndividuosProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/parameters-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/parameters-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/ventanaRecursosEIndividuos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/matcompmppfinalcomponentes/ventanaRecursosEIndividuos.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +58,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.44367817",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "configurable.group.build",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -141,6 +132,16 @@
       <workItem from="1715438299837" duration="369000" />
       <workItem from="1715593676479" duration="5012000" />
       <workItem from="1715696142200" duration="3802000" />
+      <workItem from="1715786333383" duration="1555000" />
+      <workItem from="1715797889129" duration="3781000" />
+      <workItem from="1716216845933" duration="2498000" />
+      <workItem from="1716230733097" duration="2215000" />
+      <workItem from="1716278871773" duration="4936000" />
+      <workItem from="1716298544653" duration="518000" />
+      <workItem from="1716317826595" duration="1799000" />
+      <workItem from="1716483738669" duration="130000" />
+      <workItem from="1716555870852" duration="2251000" />
+      <workItem from="1716562783930" duration="6704000" />
     </task>
     <task id="LOCAL-00001" summary="No va">
       <option name="closed" value="true" />
@@ -166,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715378750783</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=".">
+      <option name="closed" value="true" />
+      <created>1716483767167</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716483767167</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,68 +196,61 @@
     <MESSAGE value="No va" />
     <MESSAGE value="Medio Funciona" />
     <MESSAGE value="Ventana controles sin lógica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ventana controles sin lógica" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
-          <line>84</line>
+          <line>85</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
-          <line>121</line>
+          <line>122</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
-          <line>93</line>
+          <line>94</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
-          <line>210</line>
+          <line>211</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java</url>
-          <line>97</line>
+          <line>110</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/es/uah/matcomp/mp/pfinal/componentesylogs/MainGridApplication.java</url>
-          <line>81</line>
+          <line>82</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="19" />
+          <line>198</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="23" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java</url>
+          <line>201</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java</url>
+          <line>235</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="12" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="25" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java</url>
-          <line>36</line>
-          <properties class="ClasesProyecto.Individuos.Avanzado" method="mover">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

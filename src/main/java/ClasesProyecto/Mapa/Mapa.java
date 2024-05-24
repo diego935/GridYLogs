@@ -65,6 +65,23 @@ public class Mapa<T> {
                 }
             }
         }
+        for (int i : new int[]{0, n-1}) {
+            for (int j = 1; j < m-1; j++) {
+                    //casillas[i][j].addEntrada(casillas[i + 1][j]);
+                    casillas[i][j].addSalida(casillas[i][j+1]);
+                    casillas[i][j+1].addSalida(casillas[i][j]);
+
+            }
+        }
+        for (int j : new int[]{0, m-1}) {
+            for (int i = 0; i < n-1 ; i++) {
+                casillas[i][j].addSalida(casillas[i+1][j]);
+                casillas[i+1][j].addSalida(casillas[i][j]);
+
+
+            }
+        }
+
 
 
     }
@@ -80,13 +97,21 @@ public class Mapa<T> {
 
         for (Casilla casillas2[] : casillas) {
             for (Casilla c : casillas2){
-                codigo += "\nn" + c.getDato() + " [label=" + com + c.getDato() + com + "];";
+                codigo += "\nn" + c.getPos()[0]+""+c.getPos()[1] + " [label=" + com +  c.getPos()[0]+","+c.getPos()[1] + com + "];";
         }
     }
 
+        for (Casilla casillas2[] : casillas) {
+            for (Casilla c : casillas2){
+                for (Object a2 : c.getSalidas()) {
+                    Enlace a = (Enlace) a2;
+                    codigo += "\nn" + a.getOrigen().getPos()[0] + "" + a.getOrigen().getPos()[1] + " -> n" + a.getDestino().getPos()[0] + "" + a.getDestino().getPos()[1] + " [label=" + com +"1" + com + "];";
+                }
+            }
+        }
         for (Object a2 : aristas.values()) {
             Enlace a = (Enlace) a2;
-            codigo += "\nn" + a.getOrigen().getDato() + " -> n" + a.getDestino().getDato() + " [label=" + com + a.getPeso() + com + "];";
+            codigo += "\nn" + a.getOrigen().getPos()[0]+""+ a.getOrigen().getPos()[1] + " -> n" + a.getDestino().getPos()[0]+""+a.getDestino().getPos()[1] + " [label=" + com + a.getPeso() + com + "];";
 
         }
         codigo += "\n}";

@@ -3,6 +3,7 @@ package com.example.matcompmppfinalcomponentes;
 import ClasesProyecto.Global;
 import ClasesProyecto.Individuos.Avanzado;
 import ClasesProyecto.Individuos.Individuo;
+import ClasesProyecto.Individuos.Normal;
 import ClasesProyecto.Individuos.básico;
 import ClasesProyecto.Mapa.Casilla;
 import ClasesProyecto.Mapa.Mapa;
@@ -26,8 +27,8 @@ import static ClasesProyecto.Global.mapa;
 import static es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication.labelMap;
 
 public class HelloController implements Runnable{
-    public static int m = 10; //Largo
-    public static int n = 15; //Ancho
+    public static int m = 6; //Largo
+    public static int n = 6; //Ancho
     @FXML
     public static Button botonTurnos;
     @FXML
@@ -76,11 +77,11 @@ public class HelloController implements Runnable{
         Map<Individuo, Integer[]> individuos = new Map<>();
 
 
-        Individuo i1 = new básico(1, 20, 0, 0.05, 30);
-        Individuo i2 = new básico(2, 20, 0, 0.05, 30);
-        Individuo i3 = new Avanzado(3, 20, 0, 0.05, 30, i1, i2);
-        Individuo i4 = new básico(4, 20, 0, 0.05, 30, i1, i2);
-        Individuo i5 = new básico(5, 20, 0, 0.05, 50, i3, i2);
+        Individuo i1 = new básico(1, 10, 0, 0.05, 30);
+        Individuo i2 = new básico(2, 10, 0, 0.05, 30);
+        Individuo i3 = new Avanzado(3, 10, 0, 0.05, 30, i1, i2);
+        Normal i4 = new Normal(4, 10, 0, 0.05, 30, i1, i2);
+        Individuo i5 = new básico(5, 10, 0, 0.05, 50, i3, i2);
         Individuo i6 = new Avanzado(6, 20, 0, 0.05, 50, i4, i5);
 
 
@@ -94,8 +95,8 @@ public class HelloController implements Runnable{
 
         //Global
         juego = new Global(mapa, individuos);
-
-
+        //mapa.casillas[6][5].generarRecurso(1);
+        System.out.println(mapa.printCodigoGrafo());
         juego.addIndividuo(i1);
         juego.addIndividuo(i2);
         juego.addIndividuo(i3);
@@ -243,13 +244,35 @@ public class HelloController implements Runnable{
                 }
             });
 
+            /*Individuo i = (Individuo )(individuos.keys()[0]);
+            System.out.println(i.getFamilia());
+            String accion;
+            do {
+                accion = i.acciones.pop();
+                System.out.println(accion);
+            } while (!i.acciones.isVacia());
+*/
+
             try {
                 Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            if(individuos.numElementos()<2) pause = true;
+            if(individuos.numElementos()<2) {
+                pause = true;
+                /*if (individuos.numElementos() ==1 ){
+                    Individuo i = (Individuo )(individuos.keys()[0]);
+                    System.out.println(i.getFamilia());
+                    String accion;
+                    do {
+                        accion = i.acciones.pop();
+                        System.out.println(accion);
+                    } while (!i.acciones.isVacia());
+//                 System.out.println(i.acciones);
+
+                }*/
+            }
         }
     }
 }

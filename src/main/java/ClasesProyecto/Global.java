@@ -6,6 +6,7 @@ import ClasesProyecto.Mapa.Mapa;
 import Excepciones.*;
 import Listas.ListasSE.ListaSE;
 import Listas.ListasSE.Map;
+import javafx.scene.control.cell.TextFieldListCell;
 
 public class Global {
     //Desde donde se dirige todo.
@@ -37,23 +38,27 @@ public class Global {
     public void moverIndividuo(Individuo i, Integer[] dirección) {
         Integer[] pos = individuos.getFromId(i);
         try{
-        mapa.casillas[pos[0]][pos[1]].delColono(i);
+        mapa.casillas[Math.abs(pos[0])][Math.abs(pos[1])].delColono(i);
         pos[0] += dirección[0];
         pos[1] += dirección[1];
         i.setPos(pos);
         individuos.eliminar(i);
         individuos.add(pos, i);
         mapa.casillas[pos[0]][pos[1]].addColono(i);
-    }catch (NullPointerException ex) {
+    }catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     public static void addIndividuo(Individuo i) {
-        System.out.println(i.pos[0]+","+i.pos[1]);
-        mapa.casillas[i.pos[0]][i.pos[1]].addColono(i);
-        individuos.add(i.getPos(), i);
+        //System.out.println(i.pos[0]+","+i.pos[1]);
 
+        try {
+            mapa.casillas[i.pos[0]][i.pos[1]].addColono(i);
+            individuos.add(i.getPos(), i);
+        } catch (Exception e) {
+            System.out.println("Mal");
+        }
 
     }
 
@@ -154,7 +159,7 @@ public static int[] getMax() {
 }
 
 public void pasarTurno() {
-//        try {
+        try {
             this.ActualizarVida();
             this.ActualizarRecursos();
             this.generarRecursos();
@@ -162,9 +167,9 @@ public void pasarTurno() {
             this.reproducción();
             this.clonacion();
             this.aplicarRecursos();
-     //   } catch (Exception a){
-        //    System.out.println("Fok");
-       // }
+        } catch (Exception a){
+            System.out.println("Fok");
+        }
     turno++;
 
     /*if (turno % 10 == 0) {

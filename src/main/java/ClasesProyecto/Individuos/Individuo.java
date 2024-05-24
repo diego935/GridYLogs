@@ -5,6 +5,7 @@ import Arboles.ArbolGenialogico;
 import ClasesProyecto.Global;
 import ClasesProyecto.Recurso;
 import Excepciones.*;
+import Listas.ListaDE.Cola;
 
 import static ClasesProyecto.Global.*;
 import static com.example.matcompmppfinalcomponentes.HelloController.m;
@@ -19,6 +20,7 @@ public abstract class Individuo {
     public double pClonacion;
     public Integer[] pos;
 
+    public Cola<String> acciones = new Cola<>();
     public Individuo() {
 //Para Debug
     }
@@ -31,6 +33,7 @@ public abstract class Individuo {
         this.pReproduccion = pReproduccion;
         this.pClonacion = pClonacion;
 
+        this.acciones.add("Turno: "+ turno + "Nace");
     }
 
     public Individuo(int id, int vida, int generación, double pClonacion, double pReproduccion) {
@@ -41,6 +44,7 @@ public abstract class Individuo {
         this.pReproduccion = pReproduccion;
         this.pClonacion = pClonacion;
 
+        this.acciones.add("Turno: "+ turno + "Nace");
     }
 
     public Individuo(int id, int generación, Individuo padre) {
@@ -50,6 +54,7 @@ public abstract class Individuo {
         this.pClonacion = padre.pClonacion;
         this.pReproduccion = padre.pReproduccion;
         this.familia = new ArbolGenialogico(this, padre);
+        this.acciones.add("Turno: "+ turno + "Muere");
     }
 
     public int getId() {
@@ -108,12 +113,14 @@ public abstract class Individuo {
     //public abstract Individuo clone(int id, int vida, int generación);
 
     public void morir() throws Muerte {
+        this.acciones.add("Turno: "+ turno + "Muere");
         throw new Muerte(this);
     }
 
     public void actualizarVida() throws Muerte {
-        this.vida -= 2;
+        this.vida -= 1;
         if (this.vida <= 0) this.morir();
+        this.acciones.add("Turno: "+ turno + "Pasa 1 turno Vida:"+ this.vida);
     }
 
     public Integer[] getPos() {
@@ -129,19 +136,34 @@ public abstract class Individuo {
         if (!reproduce) {
             this.morir();
             return false;
-        } else return true;
-
+        } else {
+            this.acciones.add("Turno: "+ turno + "Se reproduce ");
+            return true;
+        }
     }
 
     public void recurso(Recurso r) throws Muerte {
         int tipo = r.getTipo();
-        if (tipo == 1) this.vida += 2;
-        if (tipo == 2) this.vida += 10;
-        if (tipo == 3) this.vida -= 2;
-        if (tipo == 4) this.pReproduccion += mejoraTesoro;
+        if (tipo == 1) {
+            this.vida += 2;
+            this.acciones.add("Turno: "+ turno + "Recoge Agua, Vida:"+ this.vida);
+        }
+        if (tipo == 2) {
+            this.vida += 10;
+            this.acciones.add("Turno: "+ turno + "Recoge Comida, Vida:"+ this.vida);
+        }
+        if (tipo == 3) {
+            this.vida -= 2;
+            this.acciones.add("Turno: "+ turno + "Atraviesa Montaña, Vida:"+ this.vida);
+        }
+        if (tipo == 4) {
+            this.pReproduccion += mejoraTesoro;
+            this.acciones.add("Turno: "+ turno + "Recoge Tesoro, Probabilidad de Reproducción"+ this.pReproduccion);
+        }
         if (tipo == 5) {
             this.pClonacion += mejoraBiblio;
-            this.evolucionar();
+            this.acciones.add("Turno: "+ turno + "Biblioteca, Probabilidad Clonación:"+ this.pClonacion+ "Nuevo tipo: "+ Type()+1);
+            //this.evolucionar();
         }
 
         if (tipo == 6) this.morir();
@@ -158,7 +180,7 @@ public abstract class Individuo {
                     this.pReproduccion,
                     this.familia.getSubArbolIzquierda().getListaDatosNivel(0).recuperar(0),
                     this.familia.getSubArbolDerecha().getListaDatosNivel(0).recuperar(0));
-
+            i.acciones = this.acciones;
             Global.addIndividuo(i);
             this.morir();
         }else {
@@ -180,20 +202,25 @@ public abstract class Individuo {
 
     public Integer[] recursoPositivoCercano() {
         if (recursos.isVacia()) return new Integer[]{(mapa.getMax()[0] + 1) / 2, (mapa.getMax()[1] + 1) / 2};
-        Integer[] recursoCercanoPos = new Integer[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
+        Integer[] recursoCercanoPos = new Integer[]{(mapa.getMax()[0] + 1) / 2, (mapa.getMax()[1] + 1) / 2};
         int min = Integer.MAX_VALUE;
         Integer[] recursoPos;
         int distancia;
 
         for (Object r2 : recursos.values()) {
             Recurso r = (Recurso) r2;
-            if (r.getTipo() == 2 || r.getTipo() == 6) continue;
+            if (r.getTipo() == 3 || r.getTipo() == 6) {continue;
+            }else {
             recursoPos = r.getPos();
             distancia = distancia(recursoPos, this.pos);
             if (distancia < min && distancia != 0) {
                 min = distancia;
                 recursoCercanoPos = recursoPos;
             }
+        }
+        }
+        for (int i =0;i<2;i++) {
+            if (recursoCercanoPos[i] < 0) recursoCercanoPos[i] = - recursoCercanoPos[i];
         }
         return recursoCercanoPos;
     }

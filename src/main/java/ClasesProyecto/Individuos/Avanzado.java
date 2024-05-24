@@ -59,20 +59,23 @@ public class Avanzado extends Individuo{
     */
         if (camino == null) {
             objetivo = recursoPositivoCercano();
-            if ((pos[0] == objetivo[0] && pos[1] == objetivo[1]) || objetivo == null)
-                objetivo = IndividuoCercano();//En caso de no encontrar ningun recurso y ya estar en el centro del mapa busca el camino hacía el individuo más cercano para reproducirse.
+            if ((pos[0] == objetivo[0] && pos[1] == objetivo[1]) || objetivo == null) objetivo = IndividuoCercano();//En caso de no encontrar ningun recurso y ya estar en el centro del mapa busca el camino hacía el individuo más cercano para reproducirse.
 
             //Crea el mapa de mejores rutas a cualquier punto del mapa
             Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
-            System.out.println(dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]));
+  //          System.out.println(objetivo[0]+","+ objetivo[1]);
+  //          System.out.println(dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]));
 
             camino = dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]);
             this.paso = 1;
             return this.mover();
+        }
+        if (objetivo == null){
+            objetivo = IndividuoCercano();
+            return mover();
         } else if (camino.getCamino() == null) {
             objetivo = recursoPositivoCercano();
-            if ((pos[0] == objetivo[0] && pos[1] == objetivo[1]) || objetivo == null)
-                objetivo = IndividuoCercano();//En caso de no encontrar ningun recurso y ya estar en el centro del mapa busca el camino hacía el individuo más cercano para reproducirse.
+            if ((pos[0] == objetivo[0] && pos[1] == objetivo[1]) || objetivo == null){objetivo = IndividuoCercano();}//En caso de no encontrar ningun recurso y ya estar en el centro del mapa busca el camino hacía el individuo más cercano para reproducirse.
 
             //Crea el mapa de mejores rutas a cualquier punto del mapa
             Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
@@ -101,8 +104,8 @@ public class Avanzado extends Individuo{
                 camino = null;
                 return this.mover();
             }
-            return 12;
         }
+        return 12;
     }
 
     @Override
