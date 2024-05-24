@@ -66,7 +66,7 @@ public class Mapa<T> {
             }
         }
         for (int i : new int[]{0, n-1}) {
-            for (int j = 1; j < m-1; j++) {
+            for (int j = 0; j < m-1; j++) {
                     //casillas[i][j].addEntrada(casillas[i + 1][j]);
                     casillas[i][j].addSalida(casillas[i][j+1]);
                     casillas[i][j+1].addSalida(casillas[i][j]);
@@ -81,6 +81,7 @@ public class Mapa<T> {
 
             }
         }
+
 
 
 
