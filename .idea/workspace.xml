@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="039f4a92-8e0d-4587-b181-733cbc8fc392" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/proyecto.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Global.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Avanzado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Individuo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Individuos/Normal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClasesProyecto/Mapa/Casilla.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/matcompmppfinalcomponentes/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,33 +37,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AplicationVentanaRecursoEIndividuos.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.MainGridApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Diego/IdeaProjects/GridYLogs/src/main/resources/com/example/matcompmppfinalcomponentes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.44367817",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AplicationVentanaRecursoEIndividuos.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainGridApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Diego/IdeaProjects/GridYLogs/src/main/resources/com/example/matcompmppfinalcomponentes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.44367817&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Diego\IdeaProjects\GridYLogs\src\main\resources\com\example\matcompmppfinalcomponentes" />
@@ -142,6 +141,7 @@
       <workItem from="1716483738669" duration="130000" />
       <workItem from="1716555870852" duration="2251000" />
       <workItem from="1716562783930" duration="6704000" />
+      <workItem from="1716646391718" duration="4507000" />
     </task>
     <task id="LOCAL-00001" summary="No va">
       <option name="closed" value="true" />

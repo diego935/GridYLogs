@@ -223,6 +223,7 @@ public class Casilla<Tipo> {
             i.setPos(this.pos);
             Global.addIndividuo(i);
         }
+        individuo.acciones.add("Turno: "+ turno + " Se ha clonado");
         while (this.colonos.numElementos()>3){
             Individuo minimo = this.colonos.getElemento(0); // No uso c1 por qué podria haber muerto ya.
             for(Object c3 : this.colonos.values()){

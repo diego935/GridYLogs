@@ -29,9 +29,12 @@ public class Normal extends Individuo{
     @Override
     public int mover() {
         if (objetivo==null) objetivo = getRecurspRandom();
-        if(this.pos == objetivo) objetivo = getRecurspRandom();
+        if(this.pos[0] == objetivo[0] && this.pos[1] == objetivo[1]) objetivo = getRecurspRandom();
+        objetivo[0] = Math.abs(objetivo[0]);
+        objetivo[1] = Math.abs(objetivo[1]);
+
         Integer[] proximaPos = objetivo;
-        //System.out.println(objetivo[0] + ","+ objetivo[1]);
+        System.out.println(objetivo[0] + ","+ objetivo[1]);
         proximaPos[0] = proximaPos[0] - this.pos[0];
         proximaPos[1] = proximaPos[1] - this.pos[1];
 

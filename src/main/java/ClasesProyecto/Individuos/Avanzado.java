@@ -57,7 +57,45 @@ public class Avanzado extends Individuo{
 
             return 12;
     */
-        if (camino == null) {
+
+
+        boolean caminoEncontrado = false;
+        boolean objetivoEncontrado = false;
+
+        if (camino == null || objetivo == null) {
+            if (camino == null) {
+                objetivo = objetivoEncontrado ? objetivo : IndividuoCercano();
+                caminoEncontrado = objetivo != null;
+            }
+
+            if (!objetivoEncontrado) {
+                objetivo = IndividuoCercano();
+                objetivoEncontrado = objetivo != null;
+            }
+
+            if (caminoEncontrado) {
+                Map<Casilla<Casilla>, CaminoMapa<Casilla>> dijkstra = mapa.dijkstra(mapa.casillas[pos[0]][pos[1]]);
+                camino = dijkstra.getFromId(mapa.casillas[objetivo[0]][objetivo[1]]);
+                this.paso = 1;
+            }
+
+            if (caminoEncontrado || objetivoEncontrado) {
+                return this.mover();
+            }
+        }
+
+        if (camino != null && camino.getCamino() != null) {
+            if (paso < camino.getCamino().numElementos()) {
+                Casilla<Casilla> proximaCasilla = camino.getCamino().getElemento(paso);
+                this.pos = new Integer[]{proximaCasilla.getPos()[0], proximaCasilla.getPos()[1]};
+                this.paso++;
+            } else {
+                camino = null;
+            }
+        }
+
+        return this.mover();
+        /*if (camino == null) {
             objetivo = recursoPositivoCercano();
             if ((pos[0] == objetivo[0] && pos[1] == objetivo[1]) || objetivo == null) objetivo = IndividuoCercano();//En caso de no encontrar ningun recurso y ya estar en el centro del mapa busca el camino hacía el individuo más cercano para reproducirse.
 
@@ -91,11 +129,11 @@ public class Avanzado extends Individuo{
                 Integer[] proximaPos = camino.getCamino().getElemento(paso++).getPos();
 
 
-                proximaPos[0] = proximaPos[0] - this.pos[0];
+                proximaPos[0] = Math.abs(proximaPos[0]) - this.pos[0];
                 if (proximaPos[0] == 1) return 0;
                 if (proximaPos[0] == -1) return 1;
 
-                proximaPos[1] = proximaPos[1] - this.pos[1];
+                proximaPos[1] = Math.abs(proximaPos[1]) - this.pos[1];
                 if (proximaPos[1] == 1) return 3;
                 if (proximaPos[1] == -1) return 2;
 
@@ -105,7 +143,8 @@ public class Avanzado extends Individuo{
                 return this.mover();
             }
         }
-        return 12;
+        return 12;*/
+
     }
 
     @Override

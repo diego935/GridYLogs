@@ -15,7 +15,7 @@ public class Global {
     public static Map<Individuo, Integer[]> individuos = new Map<>();
     public static Mapa<Casilla> mapa;
     public static ListaSE<Recurso> recursos = new ListaSE<>();
-    public static double pRecursos=0.05/7;
+    public static double pRecursos=0.05;
     public static int pAgua=1;
     public static int pComida=1;
     public static int pMontaña=1;
@@ -192,7 +192,7 @@ public void pasarTurno() {
                 throw new RuntimeException(e);
             }
             finally {
-                System.exit(1);
+                //System.exit(1);
             }
         }
     }

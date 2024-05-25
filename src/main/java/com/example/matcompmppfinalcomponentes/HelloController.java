@@ -27,8 +27,8 @@ import static ClasesProyecto.Global.mapa;
 import static es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication.labelMap;
 
 public class HelloController implements Runnable{
-    public static int m = 6; //Largo
-    public static int n = 6; //Ancho
+    public static int m = 5; //Largo
+    public static int n = 5; //Ancho
     @FXML
     public static Button botonTurnos;
     @FXML
@@ -77,11 +77,11 @@ public class HelloController implements Runnable{
         Map<Individuo, Integer[]> individuos = new Map<>();
 
 
-        Individuo i1 = new básico(1, 10, 0, 0.05, 30);
-        Individuo i2 = new básico(2, 10, 0, 0.05, 30);
+        Individuo i1 = new Avanzado(1, 10, 0, 0.05, 30);
+        Individuo i2 = new Avanzado(2, 15, 0, 0.05, 30);
         Individuo i3 = new Avanzado(3, 10, 0, 0.05, 30, i1, i2);
-        Normal i4 = new Normal(4, 10, 0, 0.05, 30, i1, i2);
-        Individuo i5 = new básico(5, 10, 0, 0.05, 50, i3, i2);
+        Individuo i4 = new Avanzado(4, 10, 0, 0.05, 30, i1, i2);
+        Individuo i5 = new Avanzado(5, 10, 0, 0.05, 50, i3, i2);
         Individuo i6 = new Avanzado(6, 20, 0, 0.05, 50, i4, i5);
 
 
@@ -261,7 +261,8 @@ public class HelloController implements Runnable{
 
             if(individuos.numElementos()<2) {
                 pause = true;
-                /*if (individuos.numElementos() ==1 ){
+                if (individuos.numElementos() ==1 ){
+                    System.out.println("Acciones del superviviente:");
                     Individuo i = (Individuo )(individuos.keys()[0]);
                     System.out.println(i.getFamilia());
                     String accion;
@@ -269,9 +270,9 @@ public class HelloController implements Runnable{
                         accion = i.acciones.pop();
                         System.out.println(accion);
                     } while (!i.acciones.isVacia());
-//                 System.out.println(i.acciones);
+                 System.out.println(i.acciones);
 
-                }*/
+                }
             }
         }
     }

@@ -33,7 +33,7 @@ public abstract class Individuo {
         this.pReproduccion = pReproduccion;
         this.pClonacion = pClonacion;
 
-        this.acciones.add("Turno: "+ turno + "Nace");
+        this.acciones.add("Turno: "+ turno + " Nace, con: Vida: " + this.vida);
     }
 
     public Individuo(int id, int vida, int generación, double pClonacion, double pReproduccion) {
@@ -44,7 +44,7 @@ public abstract class Individuo {
         this.pReproduccion = pReproduccion;
         this.pClonacion = pClonacion;
 
-        this.acciones.add("Turno: "+ turno + "Nace");
+        this.acciones.add("Turno: "+ turno + " Nace");
     }
 
     public Individuo(int id, int generación, Individuo padre) {
@@ -54,7 +54,7 @@ public abstract class Individuo {
         this.pClonacion = padre.pClonacion;
         this.pReproduccion = padre.pReproduccion;
         this.familia = new ArbolGenialogico(this, padre);
-        this.acciones.add("Turno: "+ turno + "Muere");
+        this.acciones.add("Turno: "+ turno + " Muere");
     }
 
     public int getId() {
@@ -150,19 +150,19 @@ public abstract class Individuo {
         }
         if (tipo == 2) {
             this.vida += 10;
-            this.acciones.add("Turno: "+ turno + "Recoge Comida, Vida:"+ this.vida);
+            this.acciones.add("Turno: "+ turno + "Recoge Comida, Vida: "+ this.vida);
         }
         if (tipo == 3) {
             this.vida -= 2;
-            this.acciones.add("Turno: "+ turno + "Atraviesa Montaña, Vida:"+ this.vida);
+            this.acciones.add("Turno: "+ turno + "Atraviesa Montaña, Vida: "+ this.vida);
         }
         if (tipo == 4) {
             this.pReproduccion += mejoraTesoro;
-            this.acciones.add("Turno: "+ turno + "Recoge Tesoro, Probabilidad de Reproducción"+ this.pReproduccion);
+            this.acciones.add("Turno: "+ turno + "Recoge Tesoro, Probabilidad de Reproducción: "+ this.pReproduccion);
         }
         if (tipo == 5) {
             this.pClonacion += mejoraBiblio;
-            this.acciones.add("Turno: "+ turno + "Biblioteca, Probabilidad Clonación:"+ this.pClonacion+ "Nuevo tipo: "+ Type()+1);
+            this.acciones.add("Turno: "+ turno + "Biblioteca, Probabilidad Clonación: "+ this.pClonacion+ "Nuevo tipo: "+ Type()+1);
             //this.evolucionar();
         }
 
