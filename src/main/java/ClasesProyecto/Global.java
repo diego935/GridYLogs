@@ -180,7 +180,7 @@ public void pasarTurno() {
         }
     }*/
 
-    if (Global.individuos.numElementos() <= 1) {
+   /* if (Global.individuos.numElementos() <= 1) {
         //pause =true;
         System.out.println("Se ha terminado");
         if (turno % 10 == 0) {
@@ -194,7 +194,7 @@ public void pasarTurno() {
                 //System.exit(1);
             }
         }
-    }
+    }*/
 }
 
 
