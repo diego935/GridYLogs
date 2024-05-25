@@ -19,7 +19,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import com.google.gson.Gson;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 import static ClasesProyecto.Global.individuos;
@@ -27,8 +29,8 @@ import static ClasesProyecto.Global.mapa;
 import static es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication.labelMap;
 
 public class HelloController implements Runnable{
-    public static int m = 5; //Largo
-    public static int n = 5; //Ancho
+    public static int m = 8; //Largo
+    public static int n = 10; //Ancho
     @FXML
     public static Button botonTurnos;
     @FXML
@@ -76,14 +78,12 @@ public class HelloController implements Runnable{
         Mapa<Integer> mapa = new Mapa<>(n, m);
         Map<Individuo, Integer[]> individuos = new Map<>();
 
-
         Individuo i1 = new Avanzado(1, 10, 0, 0.05, 30);
         Individuo i2 = new Avanzado(2, 15, 0, 0.05, 30);
         Individuo i3 = new Avanzado(3, 10, 0, 0.05, 30, i1, i2);
         Individuo i4 = new Avanzado(4, 10, 0, 0.05, 30, i1, i2);
         Individuo i5 = new Avanzado(5, 10, 0, 0.05, 50, i3, i2);
         Individuo i6 = new Avanzado(6, 20, 0, 0.05, 50, i4, i5);
-
 
         i1.setPos(new Integer[]{1, 7});
         i2.setPos(new Integer[]{3, 3});
@@ -134,6 +134,41 @@ public class HelloController implements Runnable{
 
 
     }
+
+
+    @FXML
+    protected void onCargar() {
+        if (ya) return;
+        Gson gson = new Gson();
+        try {
+            FileWriter writer = new FileWriter("./Partida.txt");
+
+            gson.toJson(juego, writer);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    protected synchronized void onGuardar() {
+        pause = true;
+        if (pause) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+            Gson gson = new Gson();
+            try {
+                FileWriter writer = new FileWriter("./Partida.txt");
+                gson.toJson(juego, writer);
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+
+    }
+
 
     @FXML
     protected synchronized EventHandler<ActionEvent> onBotton() {

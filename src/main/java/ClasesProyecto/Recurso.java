@@ -15,7 +15,7 @@ public class Recurso {
     Casilla posicion;
     public Recurso(int tipo, Casilla posicion){
         this.tipo = tipo;
-        this.vida=3 ;
+        this.vida=3;
         this.posicion = posicion;
     }
     public void actualizar(){

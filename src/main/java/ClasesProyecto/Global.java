@@ -19,8 +19,8 @@ public class Global {
     public static int pAgua=1;
     public static int pComida=1;
     public static int pMontaña=1;
-    public static int pTesoro=1000;
-    public static int pBiblio=1000;
+    public static int pTesoro=1;
+    public static int pBiblio=1;
     public static int pPozo=1;
     public static double porcentajeMejora =0.5;
     public static double mejoraTesoro =0.3;
@@ -168,8 +168,7 @@ public void pasarTurno() {
             this.clonacion();
             this.aplicarRecursos();
         } catch (Exception a){
-            System.out.println("Fok");
-        }
+            }
     turno++;
 
     /*if (turno % 10 == 0) {

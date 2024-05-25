@@ -163,7 +163,7 @@ public abstract class Individuo {
         if (tipo == 5) {
             this.pClonacion += mejoraBiblio;
             this.acciones.add("Turno: "+ turno + "Biblioteca, Probabilidad Clonación: "+ this.pClonacion+ "Nuevo tipo: "+ Type()+1);
-            //this.evolucionar();
+            this.evolucionar();
         }
 
         if (tipo == 6) this.morir();

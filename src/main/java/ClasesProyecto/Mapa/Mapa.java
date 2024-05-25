@@ -4,7 +4,7 @@ import Listas.ListaDE.Cola;
 import Listas.ListasSE.ListaSE;
 import Listas.ListasSE.Map;
 
-import static es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication.log;
+//import static es.uah.matcomp.mp.pfinal.componentesylogs.MainGridApplication.log;
 
 public class Mapa<T> {
 
@@ -17,7 +17,7 @@ public class Mapa<T> {
     }
 
     public Mapa(int n, int m) {
-        log.info("Creando Mapa");
+       // log.info("Creando Mapa");
         //Estaría bien que fuese el mapa al menos 3x3
         this.aristas = new ListaSE<Enlace>();
         this.casillas = new Casilla[n][m];

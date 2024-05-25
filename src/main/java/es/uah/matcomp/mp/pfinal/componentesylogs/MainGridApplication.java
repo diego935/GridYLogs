@@ -7,8 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 import static com.example.matcompmppfinalcomponentes.HelloController.m;
 import static com.example.matcompmppfinalcomponentes.HelloController.n;
@@ -66,7 +66,7 @@ public class MainGridApplication extends Application {
      * se pueden enviar por correo electrónico (SMTP) y a bases de datos en otras configuraciones.
      */
 
-    public static final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(MainGridApplication.class);
+    //public static final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(MainGridApplication.class);
 
 
     /**
@@ -80,7 +80,7 @@ public class MainGridApplication extends Application {
     public void start(Stage primaryStage)  {
 
 
-        log.info("Inicio del método de arranque de la aplicación para mostrar un grid de forma programática");
+        //log.info("Inicio del método de arranque de la aplicación para mostrar un grid de forma programática");
 
 
         Scene scene = new Scene(mainGrid, 600, 600);
